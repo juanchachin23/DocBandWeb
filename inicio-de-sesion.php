@@ -11,7 +11,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="assets/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-  <title>DocBand-- Inicio de sesion</title>
+  <title>DocBand-Inicio de sesion</title>
 </head>
 
 <body>
@@ -30,8 +30,8 @@
           <div class="formulario">
             <h4 class="text-center">DocBand</h4>
             <div>
-              <label for="exampleInputEmail1" class="form-label">Usuario</label>
-              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Coloque su usuario">
+              <label for="exampleInputEmail1" class="form-label"> Usuario (Correo electrónico)</label>
+              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Coloque su correo electrónico">
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
@@ -41,7 +41,7 @@
             <div class="row">
               <div class="col-lg-6 col-md-6 col-6 col-sm-6 col-xs-6">
 
-                <a>¿Olvidaste tu contraseña?</a>
+                <a href="Reestablecer-contraseña.php">¿Olvidaste tu contraseña?</a>
               </div>
               <div class="col-lg-6 col-md-6 col-6 col-sm-6 col-xs-6" id="Text-Align">
 
