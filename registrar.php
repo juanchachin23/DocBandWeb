@@ -2,6 +2,7 @@
 
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
+    $estatus = $_POST['estatus'];
     $cedula = $_POST['cedula'];
     $genero = $_POST['genero'];
     $religion = $_POST['religion'];
@@ -25,6 +26,7 @@
 
     echo "<h1>Nombre: " . $nombre."</h1><br>";
     echo "Apelldo: " . $apellido."<br>";
+    echo "Estatus: " .$estatus."<br>";
     echo "Cedula: " . $cedula."<br>";
     echo "Genero: " . $genero."<br>";
     echo "Religion: " . $religion."<br>";
