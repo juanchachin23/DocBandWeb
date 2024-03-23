@@ -23,7 +23,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
-        <form>
+        <form action = "registrar.php" method = "post" name = "registrar_paciente">
           <div class="row">
 
           </div>
@@ -41,40 +41,40 @@
               <label for="exampleInputEmail1" class="form-label">Nombre y apellido</label>
               <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Primer nombre" aria-label="First name">
+                  <input type="text" class="form-control" name = "nombre" placeholder="Primer nombre" aria-label="First name">
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" placeholder="Primer Apellido" aria-label="Last name">
+                  <input type="text" class="form-control" name = "apellido" placeholder="Primer Apellido" aria-label="Last name">
                 </div>
               </div>
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Cedula</label>
-              <input type="number" class="form-control" placeholder="coloque su cedula">
+              <input type="number" name = "cedula" class="form-control" placeholder="coloque su cedula">
             </div>
             <div class="row">
 
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Genero</label>
                 <div class="input-group">
-                  <select class="form-select form-control" id="inputGroupSelect01">
+                  <select class="form-select form-control" name = "genero" id="inputGroupSelect01">
                     <option selected>Seleccione una opción</option>
-                    <option value="1">Masculino</option>
-                    <option value="2">Femenino</option>
-                    <option value="3">Otro</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
                   </select>
                 </div>
               </div>
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Religión</label>
                 <div class="input-group">
-                  <select class="form-select form-control" id="inputGroupSelect01">
+                  <select class="form-select form-control" name = "religion" id="inputGroupSelect01">
                     <option selected>Seleccione una opción</option>
-                    <option value="1">Cristiana</option>
-                    <option value="2">Catolica</option>
-                    <option value="3">Testigo de jehova</option>
-                    <option value="4">Atea</option>
-                    <option value="5">Otra</option>
+                    <option value="Cristiana">Cristiana</option>
+                    <option value="Catolica">Catolica</option>
+                    <option value="Testigo de jehova">Testigo de jehova</option>
+                    <option value="Atea">Atea</option>
+                    <option value="Otra">Otra</option>
                   </select>
                 </div>
               </div>
@@ -87,11 +87,11 @@
             <div class="row">
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Fecha de nacimiento</label>
-                <input type="Date" class="form-control" id="fechaNacimiento" placeholder="Seleccione una fecha">
+                <input type="Date" class="form-control" name = "nacimiento" id="fechaNacimiento" placeholder="Seleccione una fecha">
               </div>
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Lugar de nacimiento</label>
-                <input type="text" class="form-control" placeholder="Coloque donde nacio">
+                <input type="text" class="form-control" name = "lugar_nacimiento" placeholder="Coloque donde nacio">
               </div>
 
 
@@ -99,26 +99,26 @@
             <div class="row">
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Número telefónico</label>
-                <input type="text" class="form-control" placeholder="Coloque su número de teléfono personal">
+                <input type="text" class="form-control" name = "num_p" placeholder="Coloque su número de teléfono personal">
               </div>
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Teléfono Familiar</label>
-                <input type="text" class="form-control" placeholder="Coloque un número teléfono de algún familiar">
+                <input type="text" class="form-control" name = "num_f" placeholder="Coloque un número teléfono de algún familiar">
               </div>
             </div>
             <div class="row">
 
               <div class="col">
                 <label for=" exampleInputPassword1" class="form-label">Ocupación</label>
-                <input type="text" class="form-control" placeholder="Coloque su ocupación">
+                <input type="text" class="form-control" name = "ocupacion" placeholder="Coloque su ocupación">
               </div>
               <div class="col">
                 <label for=" exampleInputPassword1" class="form-label">Etnia</label>
                 <div class="input-group">
-                  <select class="form-select form-control" id="inputGroupSelect01">
+                  <select class="form-select form-control" name = "etnia" id="inputGroupSelect01">
                     <option selected>Seleccione una opción</option>
-                    <option value="1">Si</option>
-                    <option value="2">No</option>
+                    <option value="Si">Si</option>
+                    <option value="No">No</option>
 
                   </select>
                 </div>
@@ -129,17 +129,16 @@
             <div>
               <label for=" exampleInputPassword1" class="form-label">Tipo de sangre</label>
               <div class="input-group">
-                <select class="form-select form-control" id="inputGroupSelect01">
+                <select class="form-select form-control"  name = "t_sangre"  id="inputGroupSelect01">
                   <option selected>Seleccione una opción</option>
-                  <option value="1">A+</option>
-                  <option value="2">A-</option>
-                  <option value="3">B+</option>
-                  <option value="4">B-</option>
-                  <option value="5">AB+</option>
-                  <option value="6">AB-</option>
-                  <option value="7">O+</option>
-                  <option value="8">O-</option>
-                  <option value="9">Otra</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
                 </select>
               </div>
             </div>
@@ -147,21 +146,16 @@
 
             <div>
               <label for="exampleInputPassword1" class="form-label">Dirección</label>
-              <input type="text" class="form-control" placeholder="Coloque su Dirección">
+              <input type="text" class="form-control" name = "direccion" placeholder="Coloque su Dirección">
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Dirección habitual</label>
-              <input type="text" class="form-control" placeholder="Coloque la dirección la cual frecuenta">
+              <input type="text" class="form-control" name = "direccion_h" placeholder="Coloque la dirección la cual frecuenta">
             </div>
             <div class="row">
 
 
             </div>
-
-
-
-
-
 
             <h5 class="secciones-formulario">Hábitos</h5>
             <hr>
@@ -169,23 +163,23 @@
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Alimentación</label>
                 <div class="input-group">
-                  <select class="form-select form-control" id="inputGroupSelect01">
+                  <select class="form-select form-control" name = "alimentacion" id="inputGroupSelect01">
                     <option selected>Seleccione una opción</option>
-                    <option value="1">Balanceada</option>
-                    <option value="2">No balanceada</option>
+                    <option value="Balanceada">Balanceada</option>
+                    <option value="No Balanceada">No balanceada</option>
                   </select>
                 </div>
               </div>
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Alcoholismo</label>
                 <div class="input-group">
-                  <select class="form-select form-control" id="inputGroupSelect01">
+                  <select class="form-select form-control" name = "alcohol" id="inputGroupSelect01">
                     <option selected>Seleccione una opción</option>
-                    <option value="1">Muy frecuente</option>
-                    <option value="2">Frecuente</option>
-                    <option value="3">Ocasional</option>
-                    <option value="4">Muy poco</option>
-                    <option value="5">No</option>
+                    <option value="Muy frecuente">Muy frecuente</option>
+                    <option value="Frecuente">Frecuente</option>
+                    <option value="Ocasional">Ocasional</option>
+                    <option value="Muy poco">Muy poco</option>
+                    <option value="No">No</option>
                   </select>
                 </div>
               </div>
@@ -194,26 +188,26 @@
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Tabáquico</label>
                 <div class="input-group">
-                  <select class="form-select form-control" id="inputGroupSelect01">
+                  <select class="form-select form-control"  name = "fumar" id="inputGroupSelect01">
                     <option selected>Seleccione una opción</option>
-                    <option value="1">Muy frecuente</option>
-                    <option value="2">Frecuente</option>
-                    <option value="3">Ocasional</option>
-                    <option value="4">Muy poco</option>
-                    <option value="5">No</option>
+                    <option value="Muy frecuente">Muy frecuente</option>
+                    <option value="Frecuente">Frecuente</option>
+                    <option value="Ocasional">Ocasional</option>
+                    <option value="Muy poco">Muy poco</option>
+                    <option value="No">No</option>
                   </select>
                 </div>
               </div>
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Cafeína</label>
                 <div class="input-group">
-                  <select class="form-select form-control" id="inputGroupSelect01">
+                  <select class="form-select form-control" name = "cafe" id="inputGroupSelect01">
                     <option selected>Seleccione una opción</option>
-                    <option value="1">Muy frecuente</option>
-                    <option value="2">Frecuente</option>
-                    <option value="3">Ocasional</option>
-                    <option value="4">Muy poco</option>
-                    <option value="5">No</option>
+                    <option value="Muy frecuente">Muy frecuente</option>
+                    <option value="Frecuente">Frecuente</option>
+                    <option value="Ocasional">Ocasional</option>
+                    <option value="Muy poco">Muy poco</option>
+                    <option value="No">No</option>
                   </select>
                 </div>
               </div>
@@ -223,33 +217,33 @@
             <hr>
             <div>
               <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-              <input type="email" class="form-control" aria-describedby="emailHelp"
-                placeholder="Coloque su dirección de correo electrónico">
+              <input type="email" class="form-control" name = "correo" aria-describedby="emailHelp" placeholder="Coloque su dirección de correo electrónico">
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="text" class="form-control" placeholder="coloque su contraseña">
+              <input type="text" class="form-control" name = "contraseña" placeholder="coloque su contraseña">
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Repetir contraseña</label>
-              <input type="text" class="form-control" placeholder="Repita su contraseña">
+              <input type="text" class="form-control" name = "contraseña_r" placeholder="Repita su contraseña">
             </div>
 
             <div>
+
               <label for="exampleInputPassword1" class="form-label">¿Eres médico?</label>
 
-              <div class="form-check form-check-inline">
+                <div class="form-check form-check-inline">
 
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                  value="option1">
-                <label class="form-check-label" for="inlineRadio1">Si</label>
+                  <input class="form-check-input" type="radio" name="medico" id="inlineRadio1"
+                    value="Si">
+                  <label class="form-check-label" for="inlineRadio1">Si</label>
 
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                  value="option2">
-                <label class="form-check-label" for="inlineRadio2">No</label>
-              </div>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="medico" id="inlineRadio2"
+                    value="No">
+                  <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
             </div>
 
 
@@ -267,7 +261,7 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary mt-5">Registrarse</button>
+            <button type="submit"  class="btn btn-primary mt-5">Registrarse</button>
           </div>
         </form>
       </div>
