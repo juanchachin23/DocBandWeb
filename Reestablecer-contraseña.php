@@ -24,53 +24,55 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
         <form>
-          <div class="row">
-
-          </div>
-          <div id="prueba">
-          <i class="bi bi-key-fill"></i>
-            <h4 class="text-center">Restablecer Contraseña</h4>
-          </div>
-
-
 
           <div class="formulario">
+            <div class="row">
+
+
+              <div class="Contedor-descripcion-pagina">
+                <i class="bi bi-key-fill"></i>
+                <h4 class="text-center">Restablecer Contraseña</h4>
+              </div>
+            </div>
             <h5 class="secciones-formulario">DocBand</h5>
-            
+
             <div>
               <div class="row">
                 <div class="col">
-                <label for="exampleInputEmail1" class="form-label">Correo</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Coloque su correo electrónico">
+                  <label for="exampleInputEmail1" class="form-label">Correo</label>
+                  <input type="email" class="form-control" aria-describedby="emailHelp"
+                    placeholder="Coloque su correo electrónico">
                 </div>
-                
-                
+
+
               </div>
               <div class="col">
                 <label for="exampleInputEmail1" class="form-label">Cedula</label>
                 <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Coloque su cedula">
-                </div>
+              </div>
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Palabra secreta de recuperacion</label>
-              <input type="password" class="form-control" placeholder="coloque la palabra secreta para restablecer su contraseña">
+              <input type="password" class="form-control"
+                placeholder="coloque la palabra secreta para restablecer su contraseña">
             </div>
 
             <div>
               <div class="row">
                 <div class="col">
-                <label for="exampleInputEmail1" class="form-label">Nueva clave</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Coloca tu nueva clave">
+                  <label for="exampleInputEmail1" class="form-label">Nueva clave</label>
+                  <input type="email" class="form-control" aria-describedby="emailHelp"
+                    placeholder="Coloca tu nueva clave">
                 </div>
-                
-                
+
+
               </div>
               <div class="col">
                 <label for="exampleInputEmail1" class="form-label">Confirmar nueva clave</label>
                 <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Repite la clave">
-                </div>
+              </div>
             </div>
-            
+
 
             <div class="row">
               <div class="col-lg-6 col-md-6 col-6 col-sm-6 col-xs-6">
@@ -85,7 +87,7 @@
             </div>
 
 
-             <button class="btn btn-primary mt-5">Continuar con restablecimiento </a></button> 
+            <button class="btn btn-primary mt-5">Continuar con restablecimiento </a></button>
           </div>
         </form>
       </div>

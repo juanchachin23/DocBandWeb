@@ -24,17 +24,20 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
         <form action="registrar.php" method="post" name="registrar_paciente">
-          <div class="row">
-
-          </div>
-          <div id="prueba">
-            <i class="bi bi-person-circle"></i>
-            <h4 class="text-center">Nuevo Usuario</h4>
-          </div>
 
 
 
           <div class="formulario">
+
+            <div class="row">
+
+
+              <div class="Contedor-descripcion-pagina">
+                <i class="bi bi-person-add"></i>
+                <h4 class="text-center">Nuevo Usuario</h4>
+              </div>
+            </div>
+
             <h5 class="secciones-formulario">Informacion personal</h5>
             <hr>
             <div>
@@ -62,7 +65,7 @@
                 </div>
               </div>
               <div class="col-12 col-lg-6">
-              <label for=" exampleInputPassword1" class="form-label">Cédula</label>
+                <label for=" exampleInputPassword1" class="form-label">Cédula</label>
                 <input type="number" name="cedula" class="form-control" placeholder="coloque su cédula" required>
               </div>
             </div>
