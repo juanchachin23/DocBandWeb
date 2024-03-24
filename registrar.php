@@ -32,13 +32,13 @@
 
     if($sql_rest){
 
-        echo "Bueno";
+        echo "Registro Exitoso";
 
     }
 
     else{
 
-        echo "Bueno";
+        echo "ERROR";
 
 
     }
