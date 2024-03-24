@@ -2,7 +2,7 @@
 
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-    $cedula = $_POST['estatus'] . $_POST['cedula'];
+    $cedula = $_POST['estatus'] . "-".$_POST['cedula'];
     $genero = $_POST['genero'];
     $religion = $_POST['religion'];
     $nacimiento = $_POST['nacimiento'];
