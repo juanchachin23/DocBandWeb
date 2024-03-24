@@ -1,9 +1,8 @@
-<?php
+ <?php
 
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-    $estatus = $_POST['estatus'];
-    $cedula = $_POST['cedula'];
+    $cedula = $_POST['estatus'] . $_POST['cedula'];
     $genero = $_POST['genero'];
     $religion = $_POST['religion'];
     $nacimiento = $_POST['nacimiento'];
@@ -22,32 +21,27 @@
     $correo = $_POST['correo'];
     $contraseña = $_POST['contraseña'];
     $contraseña_r = $_POST['contraseña_r'];
+    $palabra_s = $_POST['palabraSecreta'];
     $medico = $_POST['medico'];
 
-    echo "<h1>Nombre: " . $nombre."</h1><br>";
-    echo "Apelldo: " . $apellido."<br>";
-    echo "Estatus: " .$estatus."<br>";
-    echo "Cedula: " . $cedula."<br>";
-    echo "Genero: " . $genero."<br>";
-    echo "Religion: " . $religion."<br>";
-    echo "Fecha Nacimiento: " . $nacimiento."<br>";
-    echo "Lugar Nacimiento: " . $lugar_nacimiento."<br>";
-    echo "Telefono Personal: " . $num_p."<br>";
-    echo "Telefono Familiar: " . $num_f."<br>";
-    echo "Ocupacion: " . $ocupacion."<br>";
-    echo "Etnia: " . $etnia."<br>";
-    echo "Tipo De Sangre: " . $tipo_s."<br>";
-    echo "Dirección: " . $direccion."<br>";
-    echo "Direccion Habitual: " . $direccion_h."<br>";
-    echo "Alimentacion: " .  $alimentacion."<br>";
-    echo "Alcohol: " . $alcohol."<br>";
-    echo "Fumar: " . $fumar."<br>";
-    echo "Cafe: " . $cafe."<br>";
-    echo "Correo: " . $correo."<br>";
-    echo "Contraseña: " . $contraseña."<br>";
-    echo "Contraseña r: " . $contraseña_r ."<br>";
-    echo "Doctor: " . $medico ."<br>";
+    $db = new mysqli("localhost", "root", "", "docbanddb");
+
+    $db_insert = "insert into docband_user (nombre, apellido, cedula, genero, religion, f_nacimiento, l_nacimiento, telefono_p, telefono_f, ocupacion, etnia, t_sangre, direccion, direccion_h, alimentacion, alcohol, fumar, cafe, correo, contraseña, contraseña_f, medico) VALUES ('$nombre', '$apellido', '$cedula', '$genero', '$religion', '$nacimiento', '$lugar_nacimiento', '$num_p', '$num_f', '$ocupacion', '$etnia', '$tipo_s', '$direccion', '$direccion_h', '$alimentacion', '$alcohol', '$fumar', '$cafe', '$correo', '$contraseña', '$palabra_s', '$medico')";
+
+    $sql_rest = mysqli_query($db, $db_insert);
+
+    if($sql_rest){
+
+        echo "Bueno";
+
+    }
+
+    else{
+
+        echo "Bueno";
 
 
+    }
 
 ?>
+
