@@ -40,7 +40,7 @@
                             <div class="row">
                                 <div class="col">
                                     <input type="text" class="form-control" name="nombre" placeholder="Primer nombre"
-                                        aria-label="First name" required>
+                                        aria-label="First name">
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" name="apellido"
