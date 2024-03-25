@@ -94,16 +94,8 @@ if (!isset($nombre_usuario)){
                                     <i class="bi bi-box-arrow-left" id="icono-salir-pagina-principal"></i>
                                     <h4>salir</h4>
                                 </a>
-
                             </div>
-
                         </div>
-
-
-
-
-
-
                     </div>
                 </form>
             </div>
