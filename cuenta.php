@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+$nombre_usuario = $_SESSION['nombre_usuario'];
+$usuario = $_SESSION['username']; 
+
+if (!isset($nombre_usuario)){
+    header("location: inicio-de-sesion.php");
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -29,7 +41,7 @@
 
                             <div class="Contedor-descripcion-pagina">
                                 <i class="bi bi-person"></i>
-                                <h4 class="text-center">Usuario actual</h4>
+                                <h4 class="text-center"><?php echo $nombre_usuario ?></h4>
                             </div>
                         </div>
 

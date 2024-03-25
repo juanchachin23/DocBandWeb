@@ -17,10 +17,10 @@
 <body>
   <div class="container">
     <div class="row">
-      
+
       <div class="col-lg-3 col-md-2"></div>
       <div class="col-lg-6 col-md-8 col-12 col-sm-12 col-xs-12">
-        <form action="iniciar-sesion.php" method="post" name="inicio">
+        <form action="logica/loguear.php" method="POST">
 
 
           <div>
@@ -29,13 +29,25 @@
 
           <div class="formulario">
             <h4 class="text-center">DocBand</h4>
+            <div class="row">
+              <div class="col">
+                <?php
+                if (isset ($_GET['mensaje'])) {
+                  echo '<p>' . $_GET['mensaje'] . '</p>';
+                  
+                  
+                }
+                ?>
+              </div>
+            </div>
             <div>
               <label for="exampleInputEmail1" class="form-label"> Usuario (Correo electrónico)</label>
-              <input type="email" name = "correo_l" class="form-control" aria-describedby="emailHelp" placeholder="Coloque su correo electrónico">
+              <input type="email" name="correo_l" class="form-control" aria-describedby="emailHelp"
+                placeholder="Coloque su correo electrónico">
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="password" name = "contraseña_l" class="form-control" placeholder="coloque su contraseña">
+              <input type="password" name="contraseña_l" class="form-control" placeholder="coloque su contraseña">
             </div>
 
             <div class="row">

@@ -7,7 +7,6 @@ $usuario = $_SESSION['username'];
 if (!isset($nombre_usuario)){
     header("location: inicio-de-sesion.php");
 }
-
 ?>
 
 
@@ -27,7 +26,7 @@ if (!isset($nombre_usuario)){
     <!-- Conexion con archivo css -->
     <link href="assets/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <title>DocBand-Pagina Principal</title>
+    <title>DocBand-Pagina principal-medico</title>
 
 </head>
 
@@ -41,7 +40,7 @@ if (!isset($nombre_usuario)){
                         <div class="row">
 
                             <div class="Contedor-descripcion-pagina">
-                                <i class="bi bi-person"></i>
+                                <i class="bi bi-hospital"></i>
                                 <h4 class="text-center">Bienvenido <?php echo $nombre_usuario ?></h4>
                             </div>
                         </div>
@@ -93,7 +92,7 @@ if (!isset($nombre_usuario)){
 
                                 <a href="logica/salir.php" style="color: white; display: block;">
                                     <i class="bi bi-box-arrow-left" id="icono-salir-pagina-principal"></i>
-                                    <h4> salir</h4>
+                                    <h4>salir</h4>
                                 </a>
 
                             </div>
