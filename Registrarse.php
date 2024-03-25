@@ -44,11 +44,11 @@
               <label for="exampleInputEmail1" class="form-label">Nombre y apellido</label>
               <div class="row">
                 <div class="col">
-                  <input type="text" class="form-control" name="nombre" placeholder="Primer nombre"
+                  <input type="text" minlength="4" maxlength = "25" class="form-control" name="nombre" placeholder="Primer nombre"
                     aria-label="First name" required>
                 </div>
                 <div class="col">
-                  <input type="text" class="form-control" name="apellido" placeholder="Primer Apellido"
+                  <input type="text" minlength="4" maxlength = "25" class="form-control" name="apellido" placeholder="Primer Apellido"
                     aria-label="Last name" required>
                 </div>
               </div>
@@ -66,7 +66,7 @@
               </div>
               <div class="col-12 col-lg-6">
                 <label for=" exampleInputPassword1" class="form-label">Cédula</label>
-                <input type="number" name="cedula" class="form-control" placeholder="coloque su cédula" required>
+                <input type="number" minlength="7" maxlength = "8" name="cedula" class="form-control" placeholder="coloque su cédula" required>
               </div>
             </div>
             <div class="row">
@@ -109,7 +109,7 @@
               </div>
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Lugar de nacimiento</label>
-                <input type="text" class="form-control" name="lugar_nacimiento" placeholder="Coloque donde nacio"
+                <input type="text" minlength="10" maxlength = "100" class="form-control" name="lugar_nacimiento" placeholder="Coloque donde nacio"
                   required>
               </div>
 
@@ -118,12 +118,11 @@
             <div class="row">
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Número telefónico</label>
-                <input type="number" class="form-control" name="num_p"
-                  placeholder="Coloque su número de teléfono personal" required>
+                <input type="number" class="form-control" name="num_p" minlength="10" maxlength = "11" placeholder="Coloque su número de teléfono personal" required>
               </div>
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Teléfono Familiar</label>
-                <input type="number" class="form-control" name="num_f"
+                <input type="number" class="form-control" minlength="10" maxlength = "11" name="num_f"
                   placeholder="Coloque un número teléfono de algún familiar" required>
               </div>
             </div>
@@ -131,7 +130,7 @@
 
               <div class="col">
                 <label for=" exampleInputPassword1" class="form-label">Ocupación</label>
-                <input type="text" class="form-control" name="ocupacion" placeholder="Coloque su ocupación" required>
+                <input type="text" maxlength = "50" class="form-control" name="ocupacion" placeholder="Coloque su ocupación" required>
               </div>
               <div class="col">
                 <label for=" exampleInputPassword1" class="form-label">Etnia</label>
@@ -167,11 +166,11 @@
 
             <div>
               <label for="exampleInputPassword1" class="form-label">Dirección</label>
-              <input type="text" class="form-control" name="direccion" placeholder="Coloque su Dirección" required>
+              <input type="text" class="form-control" minlength="10" maxlength = "100" name="direccion" placeholder="Coloque su Dirección" required>
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Dirección habitual</label>
-              <input type="text" class="form-control" name="direccion_h"
+              <input type="text" class="form-control" minlength="10" maxlength = "100" name="direccion_h"
                 placeholder="Coloque la dirección la cual frecuenta" required>
             </div>
             <div class="row">
@@ -245,17 +244,17 @@
 
             <div>
               <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" name="contraseña" placeholder="Coloque su contraseña"
+              <input type="password"  minlength="5"  maxlength = "16" class="form-control" name="contraseña" placeholder="Coloque su contraseña"
                 required>
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Repetir contraseña</label>
-              <input type="password" class="form-control" name="contraseña_r" placeholder="Repita su contraseña"
+              <input type="password"  minlength="6" maxlength = "16" class="form-control" name="contraseña_r" placeholder="Repita su contraseña"
                 required>
             </div>
             <div>
               <label for="exampleInputPassword1" class="form-label">Palabra secreta de recuperacion</label>
-              <input type="password" class="form-control" name="palabraSecreta"
+              <input type="password" minlength="6" maxlength = "16"  class="form-control"  minlength="6" name="palabraSecreta" class = "contraseña"
                 placeholder="Indique su palabra secreta para poder recuperar su contraseña" required>
             </div>
 

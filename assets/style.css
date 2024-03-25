@@ -160,6 +160,10 @@ a {
 }
 
 
+input:invalid:focus{
+    border:#ffd9d9 solid 2px ;
+    background: #ffd9d9;
+}
 
 
 /*Fin de clases creadas  para pagina principal (index)*/
