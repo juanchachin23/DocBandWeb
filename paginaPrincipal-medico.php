@@ -41,7 +41,7 @@ if (!isset($nombre_usuario)){
 
                             <div class="Contedor-descripcion-pagina">
                                 <i class="bi bi-hospital"></i>
-                                <h4 class="text-center">Bienvenido <?php echo $nombre_usuario ?></h4>
+                                <h4 class="text-center">Bienvenido Medico <?php echo $nombre_usuario ?></h4>
                             </div>
                         </div>
 

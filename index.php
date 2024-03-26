@@ -2,9 +2,9 @@
 
 session_start();
 $nombre_usuario = $_SESSION['nombre_usuario'];
-$usuario = $_SESSION['username']; 
+$usuario = $_SESSION['username'];
 
-if (!isset($nombre_usuario)){
+if (!isset ($nombre_usuario)) {
     header("location: inicio-de-sesion.php");
 }
 
@@ -42,7 +42,9 @@ if (!isset($nombre_usuario)){
 
                             <div class="Contedor-descripcion-pagina">
                                 <i class="bi bi-person"></i>
-                                <h4 class="text-center">Bienvenido <?php echo $nombre_usuario ?></h4>
+                                <h4 class="text-center">Bienvenido
+                                    <?php echo $nombre_usuario ?>
+                                </h4>
                             </div>
                         </div>
 
@@ -118,6 +120,8 @@ if (!isset($nombre_usuario)){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+</body>
 
 
 </html>
