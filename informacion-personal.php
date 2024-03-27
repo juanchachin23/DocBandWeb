@@ -71,6 +71,14 @@ if (!isset ($nombre_usuario)) {
                             </div>
 
 
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 ">
+
+                            <button class="btn btn-susscefull" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasWithBothOptions"
+                                aria-controls="offcanvasWithBothOptions"><i class="bi bi-list"></i></button>
+                                
+                            </div>
+
 
                             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
                                 id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">

@@ -33,6 +33,7 @@ if (!isset($nombre_usuario)){
     header("location: inicio-de-sesion.php");
 }
 
+ob_start();
 
 ?>
 
@@ -50,7 +51,7 @@ if (!isset($nombre_usuario)){
 
         <div class="header">
             
-            <img src="assets/img/logo.png" alt="">
+            <img src="http://<?php echo $_SERVER['HTTP_HOST'];?>/DocbandWeb/assets/img/logo.png" alt="">
 
             <div>
 
@@ -227,3 +228,23 @@ if (!isset($nombre_usuario)){
 </body>
 </html>
 
+<?php
+
+$html = ob_get_clean();
+
+require 'vendor/autoload.php';
+
+use Dompdf\Dompdf;
+
+$dompfd = new Dompdf();
+
+$options = $dompfd ->getOptions();
+$options -> set(array('isRemoteEnabled' => true));
+$dompfd -> setOptions($options);
+
+$dompfd -> loadHtml($html);
+$dompfd -> setPaper ('letter');
+$dompfd -> render();
+$dompfd -> stream ('Reporte' . $nombre_usuario . '.pdf', array('attachment'=> false));
+
+?>
