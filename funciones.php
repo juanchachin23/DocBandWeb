@@ -91,4 +91,94 @@ function validated_password ($password){
     
 }
 
+function select_cedula ($cedula){
+
+    $b = "";
+
+    $db = new mysqli("localhost", "root", "", "docbanddb");
+
+    $db_select = "SELECT cedula FROM docband_user WHERE cedula = '$cedula';";
+    
+    $a = mysqli_query($db, $db_select);
+
+    foreach ($a as $fila) {
+     
+            $b = $fila["cedula"];
+         
+        }
+
+        if ($b == ''){
+
+            return True;
+
+        }
+
+        elseif ($b != ''){
+
+            return False;
+
+        }
+
+}
+
+function select_correo ($correo){
+
+    $b = "";
+
+    $db = new mysqli("localhost", "root", "", "docbanddb");
+
+    $db_select = "SELECT correo FROM docband_user WHERE correo = '$correo';";
+    
+    $a = mysqli_query($db, $db_select);
+
+    foreach ($a as $fila) {
+     
+            $b = $fila["correo"];
+         
+        }
+
+        if ($b == ''){
+
+            return True;
+
+        }
+
+        elseif ($b != ''){
+
+            return False;
+
+        }
+
+}
+
+function select_telefono ($tlf){
+
+    $b = "";
+
+    $db = new mysqli("localhost", "root", "", "docbanddb");
+
+    $db_select = "SELECT telefono_p FROM docband_user WHERE telefono_p = '$tlf';";
+    
+    $a = mysqli_query($db, $db_select);
+
+    foreach ($a as $fila) {
+     
+            $b = $fila["telefono_p"];
+         
+        }
+
+        if ($b == ''){
+
+            return True;
+
+        }
+
+        elseif ($b != ''){
+
+            return False;
+
+        }
+
+}
+
 ?>

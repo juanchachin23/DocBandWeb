@@ -46,22 +46,56 @@ ob_start();
     <title>Reporte <?php echo htmlspecialchars($nombre_usuario) ?> </title>
 </head>
 <body>
+
+ 
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        body{
+
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif, 'Courier New', Courier, monospace;
+
+        }
+
+        h2{
+
+            color: #1a93be;
+
+        }
+
+        hr{
+    
+            border: #1a93be solid 1px;
+
+        }
+
+        .tituloD{
+      
+      		text-align: center;
+      		padding: px;
+      		background: #1a93be;;
+            width: 200px;
+      		border-radius: 10px;
+      
+        }
+		
+      
+      	.tituloD p{
+      
+      		color: white;
+      		font-size: 40px;
+      		
+      }
+      
+      
+
+    </style>
     
     <div class="contenedor_p">
 
-        <div class="header">
-            
-            <img src="http://<?php echo $_SERVER['HTTP_HOST'];?>/DocbandWeb/assets/img/logo.png" alt="">
-
-            <div>
-
-            <label>Docband</label>
-
-             </div>
-
-
-        </div>
-
+			<div class="tituloD">
+            <label><p>Docband</p></label>
+            </div>
 
         <h2>Información Personal</h2>
      
@@ -223,24 +257,22 @@ ob_start();
     <br>
     <br>
     <br>
-
-
 </body>
 </html>
 
 <?php
 
-$html = ob_get_clean();
+$html = ob_get_clean(); 
 
 require 'vendor/autoload.php';
 
 use Dompdf\Dompdf;
+use Dompdf\Options;
 
-$dompfd = new Dompdf();
+$options= new Options();
+$options -> set('isRemoteEnabled', TRUE);
 
-$options = $dompfd ->getOptions();
-$options -> set(array('isRemoteEnabled' => true));
-$dompfd -> setOptions($options);
+$dompfd = new Dompdf($options);
 
 $dompfd -> loadHtml($html);
 $dompfd -> setPaper ('letter');

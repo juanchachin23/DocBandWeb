@@ -18,13 +18,14 @@ body{
 
     font-weight: 600;
     font-size: 35px;
-    color: #34b4e4;
+    color: #1a93be;
 
 }
 
 img{
-
-    width: 60px;border-radius: 100px;
+    text-align: center;
+    width: 60px;
+    border-radius: 100px;
     margin-left: 43px;
     margin-bottom: 5px;
 

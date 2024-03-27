@@ -73,10 +73,7 @@ if (!isset ($nombre_usuario)) {
 
                             <div class="col-lg-2 col-md-2 col-sm-2 col-3 ">
 
-                            <button class="btn btn-susscefull" type="button" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasWithBothOptions"
-                                aria-controls="offcanvasWithBothOptions"><i class="bi bi-list"></i></button>
-                                
+                            <a href="reporteUsuario.php" class="btn btn-info" role="button">Generar Reporte</a>
                             </div>
 
 

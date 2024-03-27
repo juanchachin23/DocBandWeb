@@ -1,9 +1,10 @@
  <?php
 
+    $db = new mysqli("localhost", "root", "", "docbanddb");
+
     require_once ("funciones.php");
     $name_error = "";
     $flag = True;
-
     $nombre =  capitalize ($_POST['nombre']);
     $apellido = capitalize ($_POST['apellido']);
     $cedula = $_POST['estatus'] . "-".$_POST['cedula'];
@@ -80,6 +81,14 @@
 
         }
 
+        if (!select_cedula($cedula)){
+
+            $flag = False;
+            $name_error = $cedula . ", esta cedula ya existe";
+
+        }
+
+        
     }
 
     //Validacion Contraseña
@@ -115,11 +124,25 @@
 
     }
 
+    // Validacion Correo
+    if (!select_correo($correo)){
+
+        $flag = False;
+        $name_error = "El correo electronico ya existe.";
+
+    }
+
+    if(!select_telefono($num_p)){
+
+        $flag = False;
+        $name_error = "El telefono personal ya existe.";
+
+    }
 
     // Insert
     if ($flag){
 
-        $db = new mysqli("localhost", "root", "", "docbanddb");
+        
         $db_insert = "insert into docband_user (nombre, apellido, cedula, genero, religion, f_nacimiento, l_nacimiento, telefono_p, telefono_f, ocupacion, etnia, t_sangre, direccion, direccion_h, alimentacion, alcohol, fumar, cafe, correo, contraseña, contraseña_f, medico) VALUES ('$nombre', '$apellido', '$cedula', '$genero', '$religion', '$nacimiento', '$lugar_nacimiento', '$num_p', '$num_f', '$ocupacion', '$etnia', '$tipo_s', '$direccion', '$direccion_h', '$alimentacion', '$alcohol', '$fumar', '$cafe', '$correo', '$contraseña', '$palabra_s', '$medico')";
         $sql_rest = mysqli_query($db, $db_insert);
 
