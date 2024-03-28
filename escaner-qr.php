@@ -1,32 +1,15 @@
 <?php
 
 session_start();
-require 'phpqrcode/qrlib.php';
+require 'conexion.php';
+
 
 $nombre_usuario = $_SESSION['nombre_usuario'];
-$usuario = $_SESSION['username'];
-$contenido = $_SESSION['identificador'];
 
-if (!isset ($nombre_usuario)) {
+
+if (!isset($nombre_usuario)) {
     header("location: inicio-de-sesion.php");
 }
-
-
-$dir = 'QR-codes/';
-
-if (!file_exists($dir))
-    mkdir($dir);
-
-$filename = $dir.'Qr-paciente.png';
-
-$resolution_size = 1000;
-$level = 'M';
-$frameSize = 0;
-
-
-QRcode::png($contenido, $filename, $level, $resolution_size, $frameSize);
-
-    
 
 ?>
 
@@ -46,7 +29,20 @@ QRcode::png($contenido, $filename, $level, $resolution_size, $frameSize);
     <!-- Conexion con archivo css -->
     <link href="assets/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <!-- Conexion con libreria de Escaner-qr -->
+    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"> </script>
+
+    <!--j query -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>DocBand-qr-paciente</title>
+
+    <style>
+        #result {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    </style>
 
 </head>
 
@@ -139,7 +135,7 @@ QRcode::png($contenido, $filename, $level, $resolution_size, $frameSize);
                                             </a>
                                         </div>
                                         <div class="col">
-                                            
+
                                         </div>
 
 
@@ -162,49 +158,73 @@ QRcode::png($contenido, $filename, $level, $resolution_size, $frameSize);
                         </div>
 
                         <div class="row">
-                            <h5 class="secciones-formulario">Mi QR</h5>
+                            <h5 class="secciones-formulario">Qr Escaner</h5>
                             <hr>
                             <br>
-                            
-                        </div>
 
-                        <div class="row"> 
-                            <div class="col-3"></div>
-                            <div class="col">
-                            <?php echo '<img src="'.$filename.'" class="img-fluid" />';?>
-                            </div>
-                            <div class="col-3"></div>
                         </div>
 
                         <div class="row">
-                            <div class="col" id="espacio-icono">
-                                <a href="" style="color: white; display: block;">
-                                    <i class="bi bi-file-earmark-pdf" id="icono-salir-pagina-principal"></i>
-                                    <h4>Exportar</h4>
-                                </a>
-                            </div>
+                            <div class="col col-lg-6 col-md-8" id="reader">
 
 
-                            <div class="col" id="espacio-icono">
 
-                                <a href="Escaner-qr.php" style="color: white; display: block;">
-                                    <i class="bi bi-camera" id="icono-salir-pagina-principal"></i>
-                                    <h4>Escanear</h4>
-                                </a>
 
+
+
+                                <script>
+                                    const scanner = new Html5QrcodeScanner('reader', {
+                                        qrbox: {
+                                            width: 180,
+                                            height: 180,
+                                        },
+                                        fps: 20,
+
+
+                                    });
+
+                                    scanner.render(success, error);
+
+                                    function success(result) {
+
+                                        scanner.clear();
+                                        document.getElementById('reader').remove();
+                                        // Enviar el resultado a PHP mediante AJAX
+                                        enviarResultadoPHP(result);
+
+
+                                    }
+
+                                    function enviarResultadoPHP(result) {
+                                        // Realizar una solicitud AJAX utilizando jQuery
+                                        $.ajax({
+                                            url: 'consulta-escaner-qr.php', // Ruta al archivo PHP
+                                            type: 'POST', // Método de solicitud
+                                            data: { resultadoQR: result }, // Datos a enviar
+                                            success: function (response) {
+                                                // Manejar la respuesta del servidor si es necesario
+                                                document.getElementById('resultadoConsulta').innerHTML = response;
+                                            },
+                                            error: function (xhr, status, error) {
+                                                console.error('Error en la solicitud:', error);
+                                            }
+                                        });
+                                    }
+
+                                    function error(err) {
+                                        console.error(err);
+                                    } 
+                                </script>
                             </div>
 
                         </div>
-
-
-                        <div class="row">
-                            <div class="col">
-
-                            </div>
+                        <div id="resultadoConsulta"></div>
 
 
 
-                        </div>
+
+
+
 
 
 
