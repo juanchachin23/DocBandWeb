@@ -17,7 +17,7 @@ $dir = 'QR-codes/';
 if (!file_exists($dir))
     mkdir($dir);
 
-$filename = $dir.'Qr-paciente.png';
+$filename = $dir.'Qr-paciente' . $nombre_usuario .'.png';
 
 $resolution_size = 1000;
 $level = 'M';

@@ -11,7 +11,8 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="assets/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-  <title>DocBand-Inicio de sesion</title>
+  <link rel="shortcut icon" href="assets/img/logo.png">
+  <title>DocBand - Inicio de Sesion</title>
 </head>
 
 <body>
@@ -31,13 +32,15 @@
             <h4 class="text-center">DocBand</h4>
             <div class="row">
               <div class="col">
+
+                <p style = " margin-top:10px; text-align: center;">
                 <?php
                 if (isset ($_GET['mensaje'])) {
-                  echo '<p>' . $_GET['mensaje'] . '</p>';
-                  
-                  
-                }
+                  echo  $_GET['mensaje'];
+                  }
                 ?>
+
+                </p>
               </div>
             </div>
             <div>

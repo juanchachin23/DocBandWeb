@@ -37,6 +37,7 @@ if (!isset ($nombre_usuario)) {
                 <form action="registrar.php" method="post" name="registrar_paciente">
 
                     <div class="formulario">
+                        
                     <br>
                         <div class="row">
 

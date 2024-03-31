@@ -36,7 +36,10 @@
         if (!no_num_str($nombre)){
 
             $flag = False;
-            $name_error = "El nombre no puede contener numeros ni caracteres especiales.";
+
+            header("Location: Registrarse.php?mensaje=El+Nombre+No+Puede+Contener+Numeros+Ni+Caracteres+Especiales");
+    
+            exit();
 
         }
 
@@ -49,7 +52,10 @@
         if (!no_num_str($apellido)){
 
             $flag = False;
-            $name_error = "El apellido no puede contener numeros ni caracteres especiales.";
+
+            header("Location: Registrarse.php?mensaje=El+Apellido+No+Puede+Contener+Numeros+Ni+Caracteres+Especiales");
+    
+            exit();
 
         }
 
@@ -63,28 +69,42 @@
         if ($v_cedula < 1000000){
 
             $flag = False;
-            $name_error = "Cedula Invalida, no puede ser menor a 1.000.000.";
+
+            header("Location: Registrarse.php?mensaje=Cedula+Invalida:+No+Puede+Ser+Menor+a+1.000.000");
+    
+            exit();
+
 
         }
 
         if ($v_cedula > 60000000){
 
             $flag = False;
-            $name_error = "Cedula Invalida, no puede ser mayor a 60.000.000.";
+
+            header("Location: Registrarse.php?mensaje=Cedula+Invalida:+No+Puede+Ser+Menor+a+60.000.000");
+    
+            exit();
 
         }
 
         if (!only_num_str($v_cedula)){
 
             $flag = False;
-            $name_error = "Cedula Invalida, no puede contener letras ni caracteres especiales.";
+
+            header("Location: Registrarse.php?mensaje=Cedula+Invalida,+No+Puede+Contener+Letras+Ni+Caracteres+Especiales");
+    
+            exit();
+
 
         }
 
         if (!select_cedula($cedula)){
 
             $flag = False;
-            $name_error = $cedula . ", esta cedula ya existe";
+
+            header("Location: Registrarse.php?mensaje=Cedula+Ya+Registrada,+$cedula");
+    
+            exit();
 
         }
 
@@ -97,28 +117,41 @@
         if ($contraseña != $contraseña_r){
 
             $flag = False;
-            $name_error = "Contraseña Las Contraseñas no son iguales.";
+
+            header("Location: Registrarse.php?mensaje=Las+Contraseñas+No+Son+Iguales");
+    
+            exit();
 
         }
 
         if ($contraseña == $palabra_s) {
             
             $flag = False;
-            $name_error = "La contraseña no puede ser igual a la contraseña especial.";
+
+            header("Location: Registrarse.php?mensaje=Las+Contraseñas+No+Son+Iguales");
+    
+            exit();
+
 
         }
 
         if (!validated_password($contraseña)) {
             
             $flag = False;
-            $name_error = "Contraseña Invalida: la contraseña debe contener 1. 1 Caracter Especial \n2.1 Número\n3. 1 Letra en mayuscula\n4. 1 Letra en minuscula.";
+
+            header("Location: Registrarse.php?mensaje=Contraseña+Invalida:+La+Contraseña+Debe+Contener:+<br>1 Caracter Especial <br>1 Número<br>1 Letra en mayuscula<br>1 Letra en minuscula.");
+    
+            exit();
 
         }
 
         if (!validated_password($palabra_s)) {
             
             $flag = False;
-            $name_error = "Contraseña Especial Invalida: la contraseña debe contener 1. 1 Caracter Especial \n2.1 Número\n3. 1 Letra en mayuscula\n4. 1 Letra en minuscula.";
+
+            header("Location: Registrarse.php?mensaje=Contraseña+Invalida:+La+Contraseña+Debe+Contener:+<br>1 Caracter Especial <br>1 Número<br>1 Letra en mayuscula<br>1 Letra en minuscula.");
+    
+            exit();
 
         }
 
@@ -128,14 +161,20 @@
     if (!select_correo($correo)){
 
         $flag = False;
-        $name_error = "El correo electronico ya existe.";
+
+        header("Location: Registrarse.php?mensaje=El+Correo+Electronico+Ya+Ha+Sido+Registrado<br>Intenta+Con+Otro+Correo+Electronico");
+    
+        exit();
 
     }
 
     if(!select_telefono($num_p)){
 
         $flag = False;
-        $name_error = "El telefono personal ya existe.";
+
+        header("Location: Registrarse.php?mensaje=El+Numero+Telefonico+Ya+Ha+Sido+Registrado<br>Intenta+Con+Otro+Numero+Telefonico");
+    
+        exit();
 
     }
 
@@ -144,20 +183,31 @@
 
         
         $db_insert = "insert into docband_user (nombre, apellido, cedula, genero, religion, f_nacimiento, l_nacimiento, telefono_p, telefono_f, ocupacion, etnia, t_sangre, direccion, direccion_h, alimentacion, alcohol, fumar, cafe, correo, contraseña, contraseña_f, medico) VALUES ('$nombre', '$apellido', '$cedula', '$genero', '$religion', '$nacimiento', '$lugar_nacimiento', '$num_p', '$num_f', '$ocupacion', '$etnia', '$tipo_s', '$direccion', '$direccion_h', '$alimentacion', '$alcohol', '$fumar', '$cafe', '$correo', '$contraseña', '$palabra_s', '$medico')";
+        
         $sql_rest = mysqli_query($db, $db_insert);
 
         if($sql_rest){
-            echo "Registro Exitoso.";
+
+            header("Location: inicio-de-sesion.php?mensaje=Usuario+Registrado+Satisfactoriamente");
+    
+            exit();
+
         }
 
         else{
-            echo "ERROR: El Registro No Fue Exitoso.";
+
+            header("Location: Registrarse.php?mensaje=Error:+Registro+No+Exitoso");
+    
+        exit();
+
         }
     }
 
     else{
 
-        echo "ERROR: " . $name_error;
+        header("Location: Registrarse.php?mensaje=Error:+Registro+No+Exitoso");
+    
+        exit();
 
     }
 

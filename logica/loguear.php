@@ -20,7 +20,7 @@ if ($user && $clave === $user['contraseña']) {
     $_SESSION['nombre_usuario'] = $user['nombre'];
     // Guardar el nombre de usuario en una variable de sesión
     $_SESSION['correo'] = $user['correo'];
-    // Guardar el correo del usuario en una variable de sesión
+   // Guardar el correo del usuario en una variable de sesión
     $_SESSION['identificador'] = $user['id'];
     $_SESSION['apellido_usuario'] = $user['apellido'];
     $_SESSION['cedula'] = $user['cedula'];
@@ -34,7 +34,6 @@ if ($user && $clave === $user['contraseña']) {
     $_SESSION['etnia'] = $user['etnia'];
     $_SESSION['t_sangre'] = $user['t_sangre'];
     $_SESSION['direccion'] = $user['direccion'];
-
     $_SESSION['direccion_h'] = $user['direccion_h'];
     $_SESSION['alimentacion'] = $user['alimentacion'];
     $_SESSION['alcohol'] = $user['alcohol'];
@@ -45,8 +44,12 @@ if ($user && $clave === $user['contraseña']) {
 
     // Guardar el id del usuario en una variable de sesión
     if ($user['medico'] == "Si") {
+
         header("location: ../paginaPrincipal-medico.php");
-    } else {
+
+    } 
+
+    else {
         header("location: ../index.php");
     }
 } else {

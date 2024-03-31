@@ -14,15 +14,19 @@
   <!-- Conexion con archivo css -->
   <link href="assets/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-
+  <link rel="shortcut icon" href="assets/img/logo.png">
   <title>DocBand-Registrarse</title>
 
 </head>
 
 <body>
   <div class="container">
+
     <div class="row">
       <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
+
+    
+
         <form action="registrar.php" method="post" name="registrar_paciente">
 
 
@@ -39,7 +43,28 @@
             </div>
 
             <h5 class="secciones-formulario">Informacion personal</h5>
+
+
             <hr>
+
+            <div class="row">
+              <div class="col">
+
+                <p style = "text-align: center; margin-top:20px; font-size:20px;">
+                    <?php
+                    if (isset ($_GET['mensaje'])) {
+                      echo $_GET['mensaje'] ; 
+                
+                    }
+                    ?>
+                </p>
+        </div>
+    </div>
+
+
+
+
+
             <div>
               <label for="exampleInputEmail1" class="form-label">Nombre y apellido</label>
               <div class="row">
