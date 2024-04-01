@@ -34,11 +34,10 @@ if (!isset($nombre_usuario)) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
-                <form action="registrar.php" method="post" name="registrar_paciente">
+                <form action="" method="post" name="">
 
                     <div class="formulario">
-                        
-                    <br>
+                        <br>
                         <div class="row">
 
 
@@ -74,7 +73,8 @@ if (!isset($nombre_usuario)) {
 
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="informacion-personal.php" style="color: white; display: block;">
+                                            <a href="informacion-personal-medico.php"
+                                                style="color: white; display: block;">
                                                 <i class="bi bi-info-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Informacion personal</h4>
                                             </a>
@@ -83,7 +83,7 @@ if (!isset($nombre_usuario)) {
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="qr.php" style="color: white; display: block;">
+                                            <a href="" style="color: white; display: block;">
                                                 <i class="bi bi-qr-code" id="icono-salir-pagina-principal"></i>
                                                 <h4>QR</h4>
                                             </a>
@@ -93,7 +93,7 @@ if (!isset($nombre_usuario)) {
                                     </div>
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="historial-medico.php" style="color: white; display: block;">
+                                            <a href="historial-medico-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-clipboard2-pulse" id="icono-salir-pagina-principal"></i>
                                                 <h4>Historial medico</h4>
                                             </a>
@@ -101,7 +101,7 @@ if (!isset($nombre_usuario)) {
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="cuenta.php" style="color: white; display: block;">
+                                            <a href="" style="color: white; display: block;">
                                                 <i class="bi bi-person-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Cuenta</h4>
                                             </a>
@@ -112,7 +112,7 @@ if (!isset($nombre_usuario)) {
                                     <div class="row">
 
                                         <div class="col-lg-4 col-md-3 col-sm-3 col-4" id="espacio-icono">
-                                            <a href="index.php" style="color: white; display: block;"
+                                            <a href="paginaPrincipal-medico.php" style="color: white; display: block;"
                                                 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
                                                 <i class="bi bi-house" id="icono-salir-pagina-principal"></i>
                                                 <h4>Home</h4>
@@ -277,8 +277,11 @@ if (!isset($nombre_usuario)) {
                             </div>
                         </div>
 
-
                         
+
+
+
+                        <button type="submit" class="btn btn-primary mt-5">Guardar</button>
 
 
 

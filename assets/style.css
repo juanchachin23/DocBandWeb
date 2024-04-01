@@ -159,5 +159,9 @@ input:invalid:focus{
     background: #ffd9d9;
 }
 
+textarea {
+    resize: none;
+  }
+
 
 /*Fin de clases creadas  para pagina principal (index)*/
