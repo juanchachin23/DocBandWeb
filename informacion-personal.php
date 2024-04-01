@@ -177,6 +177,22 @@ if (!isset ($nombre_usuario)) {
                             <hr>
                         </div>
                         
+
+                            <div class="row">
+                                <div class="col">
+
+                                    <p style = " margin-top:10px; text-align: center;">
+                                        <?php
+                                            if (isset ($_GET['mensaje'])) {
+                                            echo  $_GET['mensaje'];
+                                            }
+                                        ?>
+
+                                    </p>
+                                </div>
+                            </div>
+
+
                         <div>
                             <label for="exampleInputEmail1" class="form-label">Nombre y apellido</label>
                             <div class="row">
