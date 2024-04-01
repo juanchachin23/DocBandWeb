@@ -39,7 +39,7 @@
             <div class="row">
               <div class="col">
 
-                <p style = "color:red; text-align: center; margin-top:20px; font-size:20px;">
+                <p style = " text-align: center; margin-top:20px; font-size:20px;">
                     <?php
                     if (isset ($_GET['mensaje'])) {
                       echo $_GET['mensaje'] ; 

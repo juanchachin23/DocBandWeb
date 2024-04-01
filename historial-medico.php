@@ -146,6 +146,19 @@ if (!isset($nombre_usuario)) {
                             <hr>
                         </div>
 
+                        <div class="row">
+                            <div class="col">
+                                <p style = " text-align: center; margin-top:20px; font-size:20px;">
+                                    <?php
+                                    if (isset ($_GET['mensaje'])) {
+                                    echo $_GET['mensaje'] ; 
+                                
+                                    }
+                                    ?>
+                                </p>
+                            </div>
+                        </div>
+
                         <div class="row" style = "margin-top:15px;">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <label for="exampleInputEmail1" class="form-label">Cedula del Paciente</label>

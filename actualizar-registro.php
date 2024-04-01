@@ -56,7 +56,7 @@ if (!isset ($nombre_usuario)) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
-                <form action="registrar.php" method="post" name="registrar_paciente">
+                <form action="logica/actualizar.php" method="post" name="registrar_paciente">
 
                     <div class="formulario">
                         <br>
@@ -73,12 +73,7 @@ if (!isset ($nombre_usuario)) {
 
                             <div class="col-lg-2 col-md-2 col-sm-2 col-3 ">
 
-                            <a href="reporteUsuario.php" class="btn btn-info" role="button">Generar Reporte</a>
-                            </div>
-
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 ">
-
-                            <a href="actualizar-registro.php" class="btn btn-info" role="button">Editar Información</a>
+                            <a href="informacion-personal.php" class="btn btn-info" role="button">Volver</a>
                             </div>
 
 
@@ -177,28 +172,41 @@ if (!isset ($nombre_usuario)) {
                             <hr>
                         </div>
                         
+                                    <div class="row">
+                        <div class="col">
+
+                            <p style = " margin-top:10px; text-align: center;">
+                            <?php
+                            if (isset ($_GET['mensaje'])) {
+                            echo  $_GET['mensaje'];
+                            }
+                            ?>
+
+                            </p>
+                        </div>
+                        </div>
+
                         <div>
                             <label for="exampleInputEmail1" class="form-label">Nombre y apellido</label>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" name="nombre" disabled
+                                    <input type="text" class="form-control" name="nombre_r"
                                         placeholder="Primer nombre" aria-label="First name"
                                         value="<?php echo htmlspecialchars($nombre_usuario); ?>">
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" name="apellido"
-                                        placeholder="Primer Apellido" aria-label="Last name" disabled
+                                    <input type="text" class="form-control" name="apellido_r"
+                                        placeholder="Primer Apellido" aria-label="Last name" 
                                         value="<?php echo htmlspecialchars($apellido); ?>" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row">   
                             <div class="col-12 col-lg-6">
                                 <label for="exampleInputPassword1" class="form-label">Estatus</label>
                                 <div class="input-group">
-                                    <select class="form-select form-control" disabled name="estatus"
-                                        id="inputGroupSelect01" required>
-                                        <option value="" disabled selected>
+                                    <select class="form-select form-control" name="status_r" id="inputGroupSelect01" required>
+                                        <option value="<?php  $nacionalidad_usuario; ?>" disabled selected>
                                             <?php echo htmlspecialchars($nacionalidad_usuario); ?>
                                         </option>
                                         <option value="E">E</option>
@@ -208,7 +216,7 @@ if (!isset ($nombre_usuario)) {
                             </div>
                             <div class="col-12 col-lg-6">
                                 <label for=" exampleInputPassword1" class="form-label">Cédula</label>
-                                <input type="number" name="cedula" disabled
+                                <input type="text" name="cedula_r" 
                                     value="<?php echo htmlspecialchars($cedula_usuario); ?>" class="form-control"
                                     placeholder="coloque su cédula" required>
                             </div>
@@ -218,9 +226,9 @@ if (!isset ($nombre_usuario)) {
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Género</label>
                                 <div class="input-group">
-                                    <select class="form-select form-control" disabled name="genero"
+                                    <select class="form-select form-control"  name="genero_r"
                                         id="inputGroupSelect01" required>
-                                        <option value="" disabled selected>
+                                        <option value="<?php  htmlspecialchars($genero); ?>" disabled selected>
                                             <?php echo htmlspecialchars($genero); ?>
                                         </option>
                                         <option value="Masculino">Masculino</option>
@@ -232,9 +240,9 @@ if (!isset ($nombre_usuario)) {
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Religión</label>
                                 <div class="input-group">
-                                    <select class="form-select form-control" disabled name="religion"
+                                    <select class="form-select form-control" name="religion_r"
                                         id="inputGroupSelect01" required>
-                                        <option value="" selected>
+                                        <option value="<?php  htmlspecialchars($religion); ?>" disabled selected>
                                             <?php echo htmlspecialchars($religion); ?>
                                         </option>
                                         <option value="Cristiana">Cristiana</option>
@@ -254,14 +262,14 @@ if (!isset ($nombre_usuario)) {
                         <div class="row">
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Fecha de nacimiento</label>
-                                <input type="Date" disabled value="<?php echo htmlspecialchars($f_nacimiento); ?>"
-                                    class="form-control" name="nacimiento" id="fechaNacimiento"
+                                <input type="Date"  value="<?php echo htmlspecialchars($f_nacimiento); ?>"
+                                    class="form-control" name="nacimiento_r" id="fechaNacimiento"
                                     placeholder="Seleccione una fecha" required>
                             </div>
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Lugar de nacimiento</label>
-                                <input type="text" class="form-control" disabled
-                                    value="<?php echo htmlspecialchars($l_nacimiento); ?>" name="lugar_nacimiento"
+                                <input type="text" class="form-control" 
+                                    value="<?php echo htmlspecialchars($l_nacimiento); ?>" name="lugar_nacimiento_r"
                                     placeholder="Coloque donde nacio" required>
                             </div>
 
@@ -270,14 +278,14 @@ if (!isset ($nombre_usuario)) {
                         <div class="row">
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Número telefónico</label>
-                                <input type="number" disabled value="<?php echo htmlspecialchars($n_personal) ?>"
-                                    class="form-control" name="num_p"
+                                <input type="number"  value="<?php echo htmlspecialchars($n_personal) ?>"
+                                    class="form-control" name="num_p_r"
                                     placeholder="Coloque su número de teléfono personal" required>
                             </div>
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Teléfono Familiar</label>
-                                <input type="number" disabled value="<?php echo htmlspecialchars($n_familiar) ?>"
-                                    class="form-control" name="num_f"
+                                <input type="number"  value="<?php echo htmlspecialchars($n_familiar) ?>"
+                                    class="form-control" name="num_f_r"
                                     placeholder="Coloque un número teléfono de algún familiar" required>
                             </div>
                         </div>
@@ -285,16 +293,16 @@ if (!isset ($nombre_usuario)) {
 
                             <div class="col">
                                 <label for=" exampleInputPassword1" class="form-label">Ocupación</label>
-                                <input type="text" class="form-control" name="ocupacion" disabled
+                                <input type="text" class="form-control" name="ocupacion_r" 
                                     value="<?php echo htmlspecialchars($ocupacion) ?>"
                                     placeholder="Coloque su ocupación" required>
                             </div>
                             <div class="col">
                                 <label for=" exampleInputPassword1" class="form-label">Etnia</label>
                                 <div class="input-group">
-                                    <select class="form-select form-control" disabled name="etnia"
+                                    <select class="form-select form-control"  name="etnia_r"
                                         id="inputGroupSelect01" required>
-                                        <option value="" disabled selected>
+                                        <option value=" <?php  htmlspecialchars($etnia); ?>" disabled selected>
                                             <?php echo htmlspecialchars($etnia); ?>
                                         </option>
                                         <option value="Si">Si</option>
@@ -309,9 +317,9 @@ if (!isset ($nombre_usuario)) {
                         <div>
                             <label for=" exampleInputPassword1" class="form-label">Tipo de sangre</label>
                             <div class="input-group">
-                                <select class="form-select form-control" disabled name="t_sangre"
+                                <select class="form-select form-control" name="t_sangre_r"
                                     id="inputGroupSelect01" required>
-                                    <option value="" disabled selected>
+                                    <option value=" <?php  htmlspecialchars($t_sangre); ?>" disabled selected>
                                         <?php echo htmlspecialchars($t_sangre); ?>
                                     </option>
                                     <option value="A+">A+</option>
@@ -329,14 +337,14 @@ if (!isset ($nombre_usuario)) {
 
                         <div>
                             <label for="exampleInputPassword1" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" disabled
-                                value="<?php echo htmlspecialchars($direccion) ?>" name="direccion"
+                            <input type="text" class="form-control" 
+                                value="<?php echo htmlspecialchars($direccion) ?>" name="direccion_r"
                                 placeholder="Coloque su Dirección" required>
                         </div>
                         <div>
                             <label for="exampleInputPassword1" class="form-label">Dirección habitual</label>
-                            <input type="text" class="form-control" disabled
-                                value="<?php echo htmlspecialchars($direccion_h) ?>" name="direccion_h"
+                            <input type="text" class="form-control"
+                                value="<?php echo htmlspecialchars($direccion_h) ?>" name="direccion_h_r"
                                 placeholder="Coloque la dirección la cual frecuenta" required>
                         </div>
                         <div class="row">
@@ -350,9 +358,9 @@ if (!isset ($nombre_usuario)) {
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Alimentación</label>
                                 <div class="input-group">
-                                    <select class="form-select form-control" disabled name="alimentacion"
+                                    <select class="form-select form-control"  name="alimentacion_r"
                                         id="inputGroupSelect01" required>
-                                        <option value="" disabled selected>
+                                        <option value=" <?php  htmlspecialchars($alimentacion) ?>" disabled selected>
                                             <?php echo htmlspecialchars($alimentacion) ?>
                                         </option>
                                         <option value="Balanceada">Balanceada</option>
@@ -363,9 +371,9 @@ if (!isset ($nombre_usuario)) {
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Alcoholismo</label>
                                 <div class="input-group">
-                                    <select class="form-select form-control" disabled name="alcohol"
+                                    <select class="form-select form-control"  name="alcohol_r"
                                         id="inputGroupSelect01" required>
-                                        <option value="" disabled selected>
+                                        <option value=" <?php  htmlspecialchars($alcohol) ?>" disabled selected>
                                             <?php echo htmlspecialchars($alcohol) ?>
                                         </option>
                                         <option value="Muy frecuente">Muy frecuente</option>
@@ -381,9 +389,9 @@ if (!isset ($nombre_usuario)) {
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Tabáquico</label>
                                 <div class="input-group">
-                                    <select class="form-select form-control" disabled name="fumar"
+                                    <select class="form-select form-control" name="fumar_r"
                                         id="inputGroupSelect01" required>
-                                        <option value="" disabled selected>
+                                        <option value=" <?php  htmlspecialchars($fumar) ?>" disabled selected>
                                             <?php echo htmlspecialchars($fumar) ?>
                                         </option>
                                         <option value="Muy frecuente">Muy frecuente</option>
@@ -397,9 +405,9 @@ if (!isset ($nombre_usuario)) {
                             <div class="col">
                                 <label for="exampleInputPassword1" class="form-label">Cafeína</label>
                                 <div class="input-group">
-                                    <select class="form-select form-control" disabled name="cafe"
+                                    <select class="form-select form-control" name="cafe_r"
                                         id="inputGroupSelect01" required>
-                                        <option value="" disabled value="" disabled selected>
+                                        <option value="<?php htmlspecialchars($cafe) ?>" disabled value="" disabled selected>
                                             <?php echo htmlspecialchars($cafe) ?>
                                         </option>
                                         <option value="Muy frecuente">Muy frecuente</option>
@@ -412,6 +420,7 @@ if (!isset ($nombre_usuario)) {
                             </div>
                         </div>
 
+                        <button type="submit" class="btn btn-primary mt-5">Actualizar Registro</button>
 
                     </div>
                 </form>

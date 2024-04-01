@@ -110,7 +110,7 @@
               <div class="col">
                 <label for="exampleInputPassword1" class="form-label">Religión</label>
                 <div class="input-group">
-                  <select class="form-select form-control" name="religion" id="inputGroupSelect01" required>
+                  <select class="form-select form-control" name = "religion" id="inputGroupSelect01" required>
                     <option value="" disabled selected>Seleccione una opción</option>
                     <option value="Cristiana">Cristiana</option>
                     <option value="Catolica">Catolica</option>
@@ -177,7 +177,7 @@
                 <select class="form-select form-control" name="t_sangre" id="inputGroupSelect01" required>
                   <option value="" disabled selected>Seleccione una opción</option>
                   <option value="A+">A+</option>
-                  <option value="A-">A-</option>
+                  <option value="A-">A-</option>1
                   <option value="B+">B+</option>
                   <option value="B-">B-</option>
                   <option value="AB+">AB+</option>
