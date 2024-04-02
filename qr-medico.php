@@ -1,15 +1,32 @@
 <?php
 
 session_start();
-require 'conexion.php';
-
+require 'phpqrcode/qrlib.php';
 
 $nombre_usuario = $_SESSION['nombre_usuario'];
+$usuario = $_SESSION['username'];
+$contenido = $_SESSION['identificador'];
 
-
-if (!isset($nombre_usuario)) {
+if (!isset ($nombre_usuario)) {
     header("location: inicio-de-sesion.php");
 }
+
+
+$dir = 'QR-codes/';
+
+if (!file_exists($dir))
+    mkdir($dir);
+
+$filename = $dir.'Qr-paciente' . $nombre_usuario .'.png';
+
+$resolution_size = 1000;
+$level = 'M';
+$frameSize = 0;
+
+
+QRcode::png($contenido, $filename, $level, $resolution_size, $frameSize);
+
+    
 
 ?>
 
@@ -29,22 +46,8 @@ if (!isset($nombre_usuario)) {
     <!-- Conexion con archivo css -->
     <link href="assets/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <!-- Conexion con libreria de Escaner-qr -->
-    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"> </script>
-
-    <!--j query -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <title>DocBand-qr-paciente</title>
     <link rel="shortcut icon" href="assets/img/logo.png">
-    
-
-    <style>
-        #result {
-            text-align: center;
-            font-size: 1.5rem;
-        }
-    </style>
 
 </head>
 
@@ -92,7 +95,7 @@ if (!isset($nombre_usuario)) {
 
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="informacion-personal.php" style="color: white; display: block;">
+                                            <a href="informacion-personal-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-info-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Informacion personal</h4>
                                             </a>
@@ -101,7 +104,7 @@ if (!isset($nombre_usuario)) {
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="qr.php" style="color: white; display: block;">
+                                            <a href="qr-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-qr-code" id="icono-salir-pagina-principal"></i>
                                                 <h4>QR</h4>
                                             </a>
@@ -111,7 +114,7 @@ if (!isset($nombre_usuario)) {
                                     </div>
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="historial-medico.php" style="color: white; display: block;">
+                                            <a href="historial-medico-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-clipboard2-pulse" id="icono-salir-pagina-principal"></i>
                                                 <h4>Historial medico</h4>
                                             </a>
@@ -119,7 +122,7 @@ if (!isset($nombre_usuario)) {
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="cuenta.php" style="color: white; display: block;">
+                                            <a href="cuenta-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-person-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Cuenta</h4>
                                             </a>
@@ -130,14 +133,14 @@ if (!isset($nombre_usuario)) {
                                     <div class="row">
 
                                         <div class="col-lg-4 col-md-3 col-sm-3 col-4" id="espacio-icono">
-                                            <a href="index.php" style="color: white; display: block;"
+                                            <a href="paginaPrincipal-medico.php" style="color: white; display: block;"
                                                 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
                                                 <i class="bi bi-house" id="icono-salir-pagina-principal"></i>
                                                 <h4>Home</h4>
                                             </a>
                                         </div>
                                         <div class="col">
-
+                                            
                                         </div>
 
 
@@ -160,73 +163,49 @@ if (!isset($nombre_usuario)) {
                         </div>
 
                         <div class="row">
-                            <h5 class="secciones-formulario">Qr Escaner</h5>
+                            <h5 class="secciones-formulario">Mi QR</h5>
                             <hr>
                             <br>
+                            
+                        </div>
 
+                        <div class="row"> 
+                            <div class="col-3"></div>
+                            <div class="col">
+                            <?php echo '<img src="'.$filename.'" class="img-fluid" />';?>
+                            </div>
+                            <div class="col-3"></div>
                         </div>
 
                         <div class="row">
-                            <div class="col col-lg-6 col-md-8" id="reader">
+                            <div class="col" id="espacio-icono">
+                                <a href="" style="color: white; display: block;">
+                                    <i class="bi bi-file-earmark-pdf" id="icono-salir-pagina-principal"></i>
+                                    <h4>Exportar</h4>
+                                </a>
+                            </div>
 
 
+                            <div class="col" id="espacio-icono">
 
+                                <a href="Escaner-qr-medico.php" style="color: white; display: block;">
+                                    <i class="bi bi-camera" id="icono-salir-pagina-principal"></i>
+                                    <h4>Escanear</h4>
+                                </a>
 
-
-
-                                <script>
-                                    const scanner = new Html5QrcodeScanner('reader', {
-                                        qrbox: {
-                                            width: 180,
-                                            height: 180,
-                                        },
-                                        fps: 20,
-
-
-                                    });
-
-                                    scanner.render(success, error);
-
-                                    function success(result) {
-
-                                        scanner.clear();
-                                        document.getElementById('reader').remove();
-                                        // Enviar el resultado a PHP mediante AJAX
-                                        enviarResultadoPHP(result);
-
-
-                                    }
-
-                                    function enviarResultadoPHP(result) {
-                                        // Realizar una solicitud AJAX utilizando jQuery
-                                        $.ajax({
-                                            url: 'consulta-escaner-qr.php', // Ruta al archivo PHP
-                                            type: 'POST', // Método de solicitud
-                                            data: { resultadoQR: result }, // Datos a enviar
-                                            success: function (response) {
-                                                // Manejar la respuesta del servidor si es necesario
-                                                document.getElementById('resultadoConsulta').innerHTML = response;
-                                            },
-                                            error: function (xhr, status, error) {
-                                                console.error('Error en la solicitud:', error);
-                                            }
-                                        });
-                                    }
-
-                                    function error(err) {
-                                        console.error(err);
-                                    } 
-                                </script>
                             </div>
 
                         </div>
-                        <div id="resultadoConsulta"></div>
+
+
+                        <div class="row">
+                            <div class="col">
+
+                            </div>
 
 
 
-
-
-
+                        </div>
 
 
 

@@ -27,6 +27,8 @@ if (!isset($nombre_usuario)){
     <link href="assets/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <title>DocBand-Pagina principal-medico</title>
+    <link rel="shortcut icon" href="assets/img/logo.png">
+
 
 </head>
 
@@ -56,7 +58,7 @@ if (!isset($nombre_usuario)){
 
                             <div class="col" id="espacio-icono">
 
-                                <a href="" style="color: white; display: block;">
+                                <a href="qr-medico.php" style="color: white; display: block;">
                                     <i class="bi bi-qr-code" id="icono-salir-pagina-principal"></i>
                                     <h4>QR</h4>
                                 </a>
@@ -74,7 +76,7 @@ if (!isset($nombre_usuario)){
 
                             <div class="col" id="espacio-icono">
 
-                                <a href="" style="color: white; display: block;">
+                                <a href="cuenta-medico.php" style="color: white; display: block;">
                                     <i class="bi bi-person-circle" id="icono-salir-pagina-principal"></i>
                                     <h4>Cuenta</h4>
                                 </a>

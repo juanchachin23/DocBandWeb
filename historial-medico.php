@@ -33,6 +33,7 @@ $result = mysqli_query($db, $sql);
     <link href="assets/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <title>DocBand-Historial-medico-paciente</title>
+    <link rel="shortcut icon" href="assets/img/logo.png">
 
 </head>
 
@@ -79,7 +80,7 @@ $result = mysqli_query($db, $sql);
 
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="informacion-personal-medico.php"
+                                            <a href="informacion-personal.php"
                                                 style="color: white; display: block;">
                                                 <i class="bi bi-info-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Informacion personal</h4>
@@ -89,7 +90,7 @@ $result = mysqli_query($db, $sql);
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="" style="color: white; display: block;">
+                                            <a href="qr.php" style="color: white; display: block;">
                                                 <i class="bi bi-qr-code" id="icono-salir-pagina-principal"></i>
                                                 <h4>QR</h4>
                                             </a>
@@ -99,7 +100,7 @@ $result = mysqli_query($db, $sql);
                                     </div>
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="historial-medico-medico.php" style="color: white; display: block;">
+                                            <a href="historial-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-clipboard2-pulse" id="icono-salir-pagina-principal"></i>
                                                 <h4>Historial medico</h4>
                                             </a>
@@ -107,7 +108,7 @@ $result = mysqli_query($db, $sql);
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="" style="color: white; display: block;">
+                                            <a href="cuenta.php" style="color: white; display: block;">
                                                 <i class="bi bi-person-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Cuenta</h4>
                                             </a>
@@ -118,7 +119,7 @@ $result = mysqli_query($db, $sql);
                                     <div class="row">
 
                                         <div class="col-lg-4 col-md-3 col-sm-3 col-4" id="espacio-icono">
-                                            <a href="paginaPrincipal-medico.php" style="color: white; display: block;"
+                                            <a href="index.php" style="color: white; display: block;"
                                                 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
                                                 <i class="bi bi-house" id="icono-salir-pagina-principal"></i>
                                                 <h4>Home</h4>

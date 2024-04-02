@@ -49,6 +49,7 @@ if (!isset ($nombre_usuario)) {
     <link href="assets/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <title>DocBand-Informacion-usuario</title>
+    <link rel="shortcut icon" href="assets/img/logo.png">
 
 </head>
 
