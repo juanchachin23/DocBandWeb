@@ -1,12 +1,18 @@
 <?php
 
 session_start();
+require 'conexion.php';
 $nombre_usuario = $_SESSION['nombre_usuario'];
 $usuario = $_SESSION['username'];
+$id = $_SESSION['identificador'];
 
 if (!isset($nombre_usuario)) {
     header("location: inicio-de-sesion.php");
 }
+
+$sql = "SELECT id, f_consulta, habitacion, cama, motivo_consulta, enfermedad_actual, antecedentes_patologicos, antecedentes_quirurgicos, antecedentes_habitos, antecedentes_epidemiologico, antecedentes_familiares, diuresis, catarsis, sueño, relaciones_sexuales, alergias, examen_fisico, diagnostico_presuntivo, diagnostico_etiologico, diagnostico_funcional, diagnostico_sindormatico, diagnostico_anatomico, plan_terapeutico from docband_medical_history WHERE id_user = $id;";
+$result = mysqli_query($db, $sql);
+
 
 ?>
 
@@ -140,144 +146,228 @@ if (!isset($nombre_usuario)) {
 
 
                         </div>
-
                         <div class="row">
-                            <h5 class="secciones-formulario">Historial medico</h5>
-                            <hr>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Cedul_paciente (id)</label>
-                                <input type="number" minlength="7" maxlength="8" name="cedula" class="form-control"
-                                    placeholder="coloque su cédula" required>
-                            </div>
+                            <br>
                         </div>
 
 
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">f_consulta</label>
-                                <textarea class="form-control" name="" rows="3" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">habitacion</label>
-                                <textarea class="form-control" name="" rows="3" maxlength="200" required></textarea>
-                            </div>
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <!--aqui empieza el bucle-->
+                            <?php
+
+                            $contador = 1;
+
+                            while ($datos = mysqli_fetch_array($result)) {
+
+                                ?>
+
+
+
+
+
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapse<?php echo $contador; ?>" aria-expanded="false"
+                                            aria-controls="flush-collapse<?php echo $contador; ?>">
+                                            <label>Fecha de consulta:
+                                                <?php echo $datos['f_consulta']; ?>
+                                            </label>
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse<?php echo $contador; ?>" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <div class="row">
+
+
+                                                <h5>Historial médico</h5>
+                                                <hr>
+
+
+                                            </div>
+
+
+                                            <div class="row"><label>Número de habitación:
+                                                    <?php echo $datos['habitacion']; ?>
+                                                </label></div>
+
+                                            <div class="row"><label>Número de cama:
+                                                    <?php echo $datos['cama']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Motivo de la consulta:</label></div>
+                                            <div class="row"><label>
+                                                    <?php echo $datos['motivo_consulta']; ?>
+                                                </label></div> <br>
+
+                                            <div class="row"><label>Enfermedad actual:</label></div>
+                                            <div class="row"><label>
+                                                    <?php echo $datos['enfermedad_actual']; ?>
+                                                </label></div><br>
+
+
+
+                                            <div class="row">
+                                                <h5>Antecedentes médicos</h5>
+                                                <hr>
+                                            </div>
+
+                                            <div class="row"><label>Antecedentes patológicos:</label></div>
+                                            <div class="row"><label>
+                                                    <?php echo $datos['antecedentes_patologicos']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Antecedentes quirúrgicos:</label></div>
+                                            <div class="row"><label>
+                                                    <?php echo $datos['antecedentes_quirurgicos']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Antecedentes por hábitos:
+
+                                                </label></div>
+                                            <div class="row"><label>
+                                                    <?php echo $datos['antecedentes_habitos']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Antecedentes epidemiológicos:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['antecedentes_epidemiologico']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Antecedentes familiares:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['antecedentes_familiares']; ?>
+                                                </label></div> <br>
+
+
+                                            <div class="row">
+                                                <h5>Revisión por sistemas</h5>
+                                                <hr>
+                                            </div>
+                                            <div class="row"><label>Diurésis:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['diuresis']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Catársis:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['catarsis']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Sueño:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['sueño']; ?>
+                                                </label></div><br>
+
+
+                                            <div class="row"><label>Relaciones Sexuales:
+
+                                                </label></div>
+                                            <div class="row"><label>
+                                                    <?php echo $datos['relaciones_sexuales']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Alergias:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['alergias']; ?>
+                                                </label></div><br>
+
+
+                                            <div class="row"><label>Examen Físico:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['examen_fisico']; ?>
+                                                </label></div><br>
+
+                                            <div class="row">
+                                                <h5>Diagnóstico</h5>
+                                                <hr>
+                                            </div>
+
+                                            <div class="row"><label>Diagnóstico presuntivo:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['diagnostico_presuntivo']; ?>
+                                                </label></div><br>
+
+
+                                            <div class="row"><label>Diagnóstico etiológico:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['diagnostico_etiologico']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Diagnóstico funcional:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['diagnostico_funcional']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Diagnóstico sindormático:
+
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['diagnostico_sindormatico']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Diagnóstico anatómico:
+
+                                                </label></div>
+                                            <div class="row"><label>
+                                                    <?php echo $datos['diagnostico_anatomico']; ?>
+                                                </label></div><br>
+
+                                            <div class="row"><label>Plan terapéutico:
+                                                    
+                                                </label></div>
+
+                                            <div class="row"><label>
+                                                    <?php echo $datos['plan_terapeutico']; ?>
+                                                </label></div><br>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <?php $contador++;
+                            } ?>
+
+
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Cama</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Motivo_consulta</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Enfermedad_actual</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_patologicos</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
 
 
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_quirurgicos</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_habitos</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_epidemiologico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_familiares</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">diuresis</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">catarsis</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Sueño</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">relaciones sexuales</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
 
 
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">alergias</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">examen fisico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico presuntivo</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico etiologico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico funcional</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico sindormatico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico anatomico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">plan terapeutico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-
-                        
 
 
 
