@@ -50,7 +50,7 @@
 
                 $flag = False;
                 
-                header("Location: ../historial-medico.php?mensaje=Paciente+No+Registrado");
+                header("Location: ../historial-medico-medico.php?mensaje=Paciente+No+Registrado");
                 
                 exit();
                 
@@ -64,7 +64,7 @@
                 
                 $sql_rest = mysqli_query($db, $db_insert);
 
-                header("Location: ../historial-medico.php?mensaje=Registro+Exitoso");
+                header("Location: ../historial-medico-medico.php?mensaje=Registro+Exitoso");
                 
                 exit();
 
@@ -73,7 +73,7 @@
 
         else{
 
-                header("Location: ../historial-medico.php?mensaje=Error:+Registro+Fallido");
+                header("Location: ../historial-medico-medico.php?mensaje=Error:+Registro+Fallido");
                 
                 exit();
                 

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+$correo =
 $nombre_usuario = $_SESSION['nombre_usuario'];
 $usuario = $_SESSION['username'];
 $apellido = $_SESSION['apellido_usuario'];
@@ -206,7 +206,7 @@ if (!isset ($nombre_usuario)) {
                                 <label for="exampleInputPassword1" class="form-label">Estatus</label>
                                 <div class="input-group">
                                     <select class="form-select form-control" name="status_r" id="inputGroupSelect01" required>
-                                        <option value="<?php  $nacionalidad_usuario; ?>" disabled selected>
+                                        <option value="<?php echo $nacionalidad_usuario; ?>" disabled selected>
                                             <?php echo htmlspecialchars($nacionalidad_usuario); ?>
                                         </option>
                                         <option value="E">E</option>
@@ -319,7 +319,7 @@ if (!isset ($nombre_usuario)) {
                             <div class="input-group">
                                 <select class="form-select form-control" name="t_sangre_r"
                                     id="inputGroupSelect01" required>
-                                    <option value=" <?php  htmlspecialchars($t_sangre); ?>" disabled selected>
+                                    <option value=" <?php echo htmlspecialchars($t_sangre); ?>" disabled selected>
                                         <?php echo htmlspecialchars($t_sangre); ?>
                                     </option>
                                     <option value="A+">A+</option>

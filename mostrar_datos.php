@@ -16,7 +16,7 @@
 
     <?php
     
-        $sql = "SELECT nombre, apellido, cedula from docband_user;";
+        $sql = "SELECT f_consulta, habitacion, cama from docband_medical_history WHERE id_user = 8;";
         $result = mysqli_query($db,$sql);
 
         while($datos = mysqli_fetch_array($result)){
@@ -24,14 +24,14 @@
     ?>
     <div class="card" style="border: 1px solid #000; border-radius: 30px; padding-left: 30px;; ">
     
-        <label>Nombre:</label>
-        <label> <?php echo $datos['nombre'];?></label>
+        <label>Fecha Consulta:</label>
+        <label> <?php echo $datos['f_consulta'];?></label>
         <br>
-        <label>Apellido</label>
-        <label><?php echo $datos['apellido'];?></label>
+        <label>Habitacion:  </label>
+        <label><?php echo $datos['habitacion'];?></label>
         <br>
-        <label>Cedula:</label>
-        <label><?php echo $datos['cedula'];?></label>
+        <label>Cama:</label>
+        <label><?php echo $datos['cama'];?></label>
         <br>
     </div>
     <br>

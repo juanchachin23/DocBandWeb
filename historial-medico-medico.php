@@ -34,10 +34,11 @@ if (!isset($nombre_usuario)) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
-                <form action="" method="post" name="">
+                <form action="logica/historial.php" method="post" name="registrar_paciente">
 
                     <div class="formulario">
-                        <br>
+                        
+                    <br>
                         <div class="row">
 
 
@@ -73,8 +74,7 @@ if (!isset($nombre_usuario)) {
 
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="informacion-personal-medico.php"
-                                                style="color: white; display: block;">
+                                            <a href="informacion-personal.php" style="color: white; display: block;">
                                                 <i class="bi bi-info-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Informacion personal</h4>
                                             </a>
@@ -83,7 +83,7 @@ if (!isset($nombre_usuario)) {
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="" style="color: white; display: block;">
+                                            <a href="qr.php" style="color: white; display: block;">
                                                 <i class="bi bi-qr-code" id="icono-salir-pagina-principal"></i>
                                                 <h4>QR</h4>
                                             </a>
@@ -93,7 +93,7 @@ if (!isset($nombre_usuario)) {
                                     </div>
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="historial-medico-medico.php" style="color: white; display: block;">
+                                            <a href="historial-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-clipboard2-pulse" id="icono-salir-pagina-principal"></i>
                                                 <h4>Historial medico</h4>
                                             </a>
@@ -101,7 +101,7 @@ if (!isset($nombre_usuario)) {
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="" style="color: white; display: block;">
+                                            <a href="cuenta.php" style="color: white; display: block;">
                                                 <i class="bi bi-person-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Cuenta</h4>
                                             </a>
@@ -112,7 +112,7 @@ if (!isset($nombre_usuario)) {
                                     <div class="row">
 
                                         <div class="col-lg-4 col-md-3 col-sm-3 col-4" id="espacio-icono">
-                                            <a href="paginaPrincipal-medico.php" style="color: white; display: block;"
+                                            <a href="index.php" style="color: white; display: block;"
                                                 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
                                                 <i class="bi bi-house" id="icono-salir-pagina-principal"></i>
                                                 <h4>Home</h4>
@@ -147,153 +147,186 @@ if (!isset($nombre_usuario)) {
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Cedul_paciente (id)</label>
-                                <input type="number" minlength="7" maxlength="8" name="cedula" class="form-control"
-                                    placeholder="coloque su cédula" required>
+                            <div class="col">
+                                <p style = " text-align: center; margin-top:20px; font-size:20px;">
+                                    <?php
+                                    if (isset ($_GET['mensaje'])) {
+                                    echo $_GET['mensaje'] ; 
+                                
+                                    }
+                                    ?>
+                                </p>
                             </div>
+                        </div>
+
+                        <div class="row" style = "margin-top:15px;">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Cedula del Paciente</label>
+                                <input type="text" minlength="7" maxlength="10" name="cedula_historia" class="form-control"
+                                    placeholder="Ingrese La Cédula" required>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Fecha de Consulta</label>
+                                <input type ="date" class="form-control" name = "fecha_historia" required>
+                            </div>
+
                         </div>
 
 
                         <div class="row">
+                            
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">f_consulta</label>
-                                <textarea class="form-control" name="" rows="3" maxlength="200" required> </textarea>
+                                <label for="exampleInputEmail1" class="form-label">Habitación</label>
+                                <input class="form-control" name="habitacion_historia" placeholder = "Coloque la Habitación del Paciente" required>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">habitacion</label>
-                                <textarea class="form-control" name="" rows="3" maxlength="200" required></textarea>
-                            </div>
-                        </div>
 
-                        <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <label for="exampleInputEmail1" class="form-label">Cama</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
+                                <input type="text" maxlength="3" name="cama_historia" class="form-control"
+                                    placeholder="Coloque Numero de Cama del Paciente" required>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Motivo_consulta</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Enfermedad_actual</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_patologicos</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
+
                         </div>
 
-
-                        <div class="row">
+                        <div class="row"  style = "margin-top:15px;">
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_quirurgicos</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
+                                <label for="exampleInputEmail1" class="form-label">Motivo de Consulta</label>
+                                <textarea class="form-control" name = "motivo_historia" rows="5" maxlength="200" required> </textarea>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_habitos</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
+                                <label for="exampleInputEmail1" class="form-label">Enfermedad Actual</label>
+                                <textarea class="form-control" name = "enfermedad_historia" rows="5" maxlength="200" required></textarea>
                             </div>
                         </div>
 
                         <div class="row">
+                            <h5 class="secciones-formulario">Antecedentes Medicos</h5>
+                            <hr>
+                        </div>
+
+                        <div class="row" style = "margin-top:15px;">
+
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_epidemiologico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
+
+                                <label for="exampleInputEmail1" class="form-label">Antecedentes Patologicos</label>
+
+                                <textarea class="form-control" name="patologico_historia" rows="5" maxlength="200" required></textarea>
                             </div>
+
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">antecedentes_familiares</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
+                                <label for="exampleInputEmail1" class="form-label">Antecedentes Quirurgicos</label>
+                                <textarea class="form-control" name = "quirurgicos_historia" rows="5" maxlength="200" required> </textarea>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row">
+                           
+                            <div class="col-lg-6 col-md-6 col-12">
+                            
+                                <label for="exampleInputEmail1" class="form-label">Antecedentes Por Habitos</label>
+                                <textarea class="form-control" name="habitos_historia" rows="5" maxlength="200" required></textarea>
+                            
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Antecedentes Epidemiologico</label>
+                                <textarea class="form-control" name="epi_historia" rows="5" maxlength="200" required> </textarea>
+
+
+                            </div>
+                        
+                        </div>
+
+                        <div class="row">
+                            
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Antecedentes Familiares</label>
+                                <textarea class="form-control" name="familiares_historia" rows="5" maxlength="200" required></textarea>
                             </div>
                         </div>
 
                         <div class="row">
+                            <h5 class="secciones-formulario">Revisión Por Sistemas</h5>
+                            <hr>
+                        </div>
+
+                        <div class="row" style = "margin-top:15px;">
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">diuresis</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
+                                <label for="exampleInputEmail1" class="form-label">Diuresis</label>
+                                <textarea class="form-control" name = "diuresis_historia" rows="5" maxlength="200" required> </textarea>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">catarsis</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
+                                <label for="exampleInputEmail1" class="form-label">Catarsis</label>
+                                <textarea class="form-control" name="catarsis_historia" rows="5" maxlength="200" required></textarea>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <label for="exampleInputEmail1" class="form-label">Sueño</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
+                                <textarea class="form-control" name="sueño_historia" rows="5" maxlength="200" required> </textarea>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">relaciones sexuales</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
+                                <label for="exampleInputEmail1" class="form-label">Relaciones Sexuales</label>
+                                <textarea class="form-control" name="relaciones_habitos" rows="5" maxlength="200" required></textarea>
                             </div>
                         </div>
 
 
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">alergias</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
+                                <label for="exampleInputEmail1" class="form-label">Alergias</label>
+                                <textarea class="form-control" name="alergia_historia" rows="5" maxlength="200" required> </textarea>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">examen fisico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
+                                <label for="exampleInputEmail1" class="form-label">Examen Fisico</label>
+                                <textarea class="form-control" name="fisico_historia" rows="5" maxlength="200" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <h5 class="secciones-formulario" >Diagnostico</h5>
+                            <hr>
+                        </div>
+
+                        <div class="row" style = "margin-top:15px;">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Diagnostico Presuntivo</label>
+                                <textarea class="form-control" name="presuntivo_historia" rows="5" maxlength="200" required> </textarea>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label for="exampleInputEmail1" class="form-label">Diagnostico Etiologico</label>
+                                <textarea class="form-control" name="etiologico_historia" rows="5" maxlength="200" required></textarea>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico presuntivo</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
+                                <label for="exampleInputEmail1" class="form-label">Diagnostico Funcional</label>
+                                <textarea class="form-control" name="funcional_historia" rows="5" maxlength="200" required> </textarea>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico etiologico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
+                                <label for="exampleInputEmail1" class="form-label">Diagnostico Sindormatico</label>
+                                <textarea class="form-control" name="sindromatico_historia" rows="5" maxlength="200" required></textarea>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico funcional</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
+                                <label for="exampleInputEmail1" class="form-label">Diagnostico Anatomico</label>
+                                <textarea class="form-control" name="anatomico_historia" rows="5" maxlength="200" required> </textarea>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico sindormatico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
+                                <label for="exampleInputEmail1" class="form-label">Plan Terapeutico</label>
+                                <textarea class="form-control" name="plan_historia" rows="5" maxlength="200" required></textarea>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">Diagnostico anatomico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required> </textarea>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <label for="exampleInputEmail1" class="form-label">plan terapeutico</label>
-                                <textarea class="form-control" name="" rows="5" maxlength="200" required></textarea>
-                            </div>
-                        </div>
-
-                        
-
-
 
                         <button type="submit" class="btn btn-primary mt-5">Guardar</button>
-
-
-
-
-
-
-
-
-
-
-
-
 
                     </div>
                 </form>
