@@ -60,4 +60,3 @@ if ($user && $clave === $user['contraseña']) {
 }
 
 ?>
-

@@ -103,7 +103,7 @@
             </div>
 
 
-            <button class="btn btn-primary mt-5">Continuar con restablecimiento </a></button>
+            <button class="btn btn-primary mt-5">Continuar con restablecimiento</button>
           </div>
         </form>
       </div>
