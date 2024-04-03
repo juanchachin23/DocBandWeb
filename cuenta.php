@@ -46,7 +46,7 @@ if (!isset ($nombre_usuario)) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
-                <form action="registrar.php" method="post" name="registrar_paciente">
+                <form action="cuenta-r.php" method="post" name="registrar_paciente">
 
                     <div class="formulario">
                     <br>
@@ -60,7 +60,10 @@ if (!isset ($nombre_usuario)) {
                                     aria-controls="offcanvasWithBothOptions"><i class="bi bi-list"></i></button>
                             </div>
 
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-3 ">
 
+                                <a href="cuenta-r.php" class="btn btn-info" role="button">Modificar Cuenta</a>
+                            </div>
 
                             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
                                 id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -168,8 +171,21 @@ if (!isset ($nombre_usuario)) {
                         </div>
 
                         
-                        
+                        <div class="row">
 
+                        <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+
+                        <input type="email" class="form-control" value="<?php echo htmlspecialchars($usuario); ?>" name="correo" disabled aria-describedby="emailHelp"
+                        placeholder="Coloque su dirección de correo electrónico" required>
+
+                        </div>
+                        
+                        <div class="row">
+                            
+                        <label for="exampleInputPassword1" class="form-label">Foto de Perfil</label>
+                            <input type="file" disabled value="<?php echo htmlspecialchars($foto); ?>" class="form-control" name="foto" class = "contraseña">
+
+                        </div>
                         
                     </div>
                 </form>

@@ -102,7 +102,18 @@ if (!isset ($nombre_usuario)) {
                                     <div class="row">
 
                                         <div class="Contedor-descripcion-pagina">
-                                            <i class="bi bi-person"></i>
+                                        <?php if ($foto != ""){?>
+
+                                            <img class = "foto_perfil img-fluid" src="<?php echo $foto?>" alt="foto de perfil">
+
+                                            <?php }
+
+                                            else {?>
+
+                                                        <i class="bi bi-person"></i>
+
+                                            <?php }?>
+
                                             <h4 class="text-center">
                                                 <?php echo $nombre_usuario ?>
                                             </h4>

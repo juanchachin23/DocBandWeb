@@ -11,6 +11,7 @@ $dato = mysqli_fetch_array($select_query);
 
 $nombre_usuario =  $dato['nombre'];
 $usuario =  $dato['correo'];
+$foto = $dato['foto'];
 
 if (!isset($nombre_usuario)){
     header("location: inicio-de-sesion.php");
@@ -49,8 +50,18 @@ if (!isset($nombre_usuario)){
                     <div class="formulario">
                         <div class="row">
 
-                            <div class="Contedor-descripcion-pagina">
-                                <i class="bi bi-hospital"></i>
+                            <div class="Contedor-descripcion-pagina  style = "padding:15px; ">
+                            <?php if ($foto != ""){?>
+
+<img class = "foto_perfil img-fluid" src="<?php echo $foto?>" alt="foto de perfil">
+
+<?php }
+
+ else {?>
+
+            <i class="bi bi-person"></i>
+
+<?php }?>
                                 <h4 class="text-center">Bienvenido Med. <?php echo $nombre_usuario ?></h4>
                             </div>
                         </div>
