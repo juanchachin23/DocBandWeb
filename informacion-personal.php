@@ -1,27 +1,36 @@
 <?php
 
+require 'conexion.php';
 session_start();
 
-$nombre_usuario = $_SESSION['nombre_usuario'];
-$usuario = $_SESSION['username'];
-$apellido = $_SESSION['apellido_usuario'];
-$nacionalidad_usuario = substr($_SESSION['cedula'], 0, 1);
-$cedula_usuario = substr($_SESSION['cedula'], 2);
-$genero = $_SESSION['genero'];
-$religion = $_SESSION['religion'];
-$f_nacimiento = $_SESSION['f_nacimiento'];
-$l_nacimiento = $_SESSION['l_nacimiento'];
-$n_personal = $_SESSION['n_personal'];
-$n_familiar = $_SESSION['n_familiar'];
-$ocupacion = $_SESSION['ocupacion'];
-$etnia = $_SESSION['etnia'];
-$t_sangre = $_SESSION['t_sangre'];
-$direccion = $_SESSION['direccion'];
-$direccion_h = $_SESSION['direccion_h'];
-$alimentacion = $_SESSION['alimentacion'];
-$alcohol = $_SESSION['alcohol'];
-$fumar = $_SESSION['fumar'];
-$cafe = $_SESSION['cafe'];
+$id = $_SESSION['identificador'];
+
+$select_information = "SELECT * FROM docband_user WHERE id ='$id'";
+$select_query = mysqli_query($db,$select_information);
+$dato = mysqli_fetch_array($select_query);
+
+
+$nombre_usuario =  $dato['nombre'];
+$usuario =  $dato['correo'];
+$apellido = $dato['apellido'];
+$nacionalidad_usuario =  substr($dato['cedula'],0,1);
+$cedula_usuario =  substr($dato['cedula'],2);
+$genero =  $dato['genero'];
+$religion =  $dato['religion'];
+$f_nacimiento =  $dato['f_nacimiento'];
+$l_nacimiento =  $dato['l_nacimiento'];
+$n_personal = $dato['telefono_p'];
+$n_familiar = $dato['telefono_f'];
+$ocupacion =  $dato['ocupacion'];
+$etnia =  $dato['etnia'];
+$t_sangre =  $dato['t_sangre'];
+$direccion =  $dato['direccion'];
+$direccion_h =  $dato['direccion_h'];
+$alimentacion =  $dato['alimentacion'];
+$alcohol =  $dato['alcohol'];
+$fumar =  $dato['fumar'];
+$cafe =  $dato['cafe'];
+$foto = $dato['foto'];
 
 $dato = $_SESSION['identificador'];
 
@@ -57,7 +66,7 @@ if (!isset ($nombre_usuario)) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
-                <form action="registrar.php" method="post" name="registrar_paciente">
+                <form action="actualizar-registro.php" method="post" name="registrar_paciente">
 
                     <div class="formulario">
                         <br>
@@ -77,10 +86,11 @@ if (!isset ($nombre_usuario)) {
                             <a href="reporteUsuario.php" class="btn btn-info" role="button">Generar Reporte</a>
                             </div>
 
+                           
                             <div class="col-lg-2 col-md-2 col-sm-2 col-3 ">
 
-                            <a href="actualizar-registro.php" class="btn btn-info" role="button">Editar Información</a>
-                            </div>
+<a href="actualizar-registro.php" class="btn btn-info" role="button">Editar Información</a>
+</div>
 
 
                             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
@@ -97,7 +107,18 @@ if (!isset ($nombre_usuario)) {
                                     <div class="row">
 
                                         <div class="Contedor-descripcion-pagina">
-                                            <i class="bi bi-person"></i>
+                                        <?php if ($foto != ""){?>
+
+<img class = "foto_perfil img-fluid" src="<?php echo $foto?>" alt="foto de perfil">
+
+<?php }
+
+ else {?>
+
+            <i class="bi bi-person"></i>
+
+<?php }?>
+
                                             <h4 class="text-center">
                                                 <?php echo $nombre_usuario ?>
                                             </h4>
@@ -431,6 +452,7 @@ if (!isset ($nombre_usuario)) {
 
 
                     </div>
+
                 </form>
             </div>
         </div>

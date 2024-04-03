@@ -1,6 +1,6 @@
  <?php
 
-    $db = new mysqli("localhost", "root", "", "docbanddb");
+    require 'conexion.php';
 
     require_once ("funciones.php");
     $name_error = "";

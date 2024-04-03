@@ -1,9 +1,18 @@
 <?php
 
 session_start();
-$nombre_usuario = $_SESSION['nombre_usuario'];
-$usuario = $_SESSION['username'];
-$foto = $_SESSION['foto'];
+
+require "conexion.php";
+
+$id = $_SESSION['identificador'];
+
+$select_information = "SELECT * FROM docband_user WHERE id ='$id'";
+$select_query = mysqli_query($db,$select_information);
+$dato = mysqli_fetch_array($select_query);
+
+$nombre_usuario =  $dato['nombre'];
+$usuario =  $dato['correo'];
+$foto = $dato['foto'];
 
 if (!isset ($nombre_usuario)) {
     header("location: inicio-de-sesion.php");

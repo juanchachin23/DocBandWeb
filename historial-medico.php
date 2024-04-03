@@ -2,9 +2,16 @@
 
 session_start();
 require 'conexion.php';
-$nombre_usuario = $_SESSION['nombre_usuario'];
-$usuario = $_SESSION['username'];
+
 $id = $_SESSION['identificador'];
+
+$select_information = "SELECT * FROM docband_user WHERE id ='$id'";
+$select_query = mysqli_query($db,$select_information);
+$dato = mysqli_fetch_array($select_query);
+
+$nombre_usuario =  $dato['nombre'];
+$usuario =  $dato['correo'];
+$foto = $dato['foto'];
 
 if (!isset($nombre_usuario)) {
     header("location: inicio-de-sesion.php");
@@ -71,7 +78,17 @@ $result = mysqli_query($db, $sql);
                                     <div class="row">
 
                                         <div class="Contedor-descripcion-pagina">
-                                            <i class="bi bi-person"></i>
+                                            <?php if ($foto != ""){?>
+
+                                            <img class = "foto_perfil img-fluid" src="<?php echo $foto?>" alt="foto de perfil">
+
+                                            <?php }
+
+                                            else {?>
+
+                                                        <i class="bi bi-person"></i>
+
+                                            <?php }?>
                                             <h4 class="text-center">
                                                 <?php echo $nombre_usuario ?>
                                             </h4>
