@@ -3,6 +3,7 @@
 session_start();
 $nombre_usuario = $_SESSION['nombre_usuario'];
 $usuario = $_SESSION['username'];
+$foto = $_SESSION['foto'];
 
 if (!isset ($nombre_usuario)) {
     header("location: inicio-de-sesion.php");
@@ -41,8 +42,8 @@ if (!isset ($nombre_usuario)) {
                     <div class="formulario">
                         <div class="row">
 
-                            <div class="Contedor-descripcion-pagina">
-                                <i class="bi bi-person"></i>
+                            <div class="Contedor-descripcion-pagina" style = "padding:15px  ;">
+                                <img class = "foto_perfil" src="<?php echo $foto?>" alt="foto de perfil">
                                 <h4 class="text-center">Bienvenido
                                     <?php echo $nombre_usuario ?>
                                 </h4>

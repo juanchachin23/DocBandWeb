@@ -27,7 +27,7 @@
 
     
 
-        <form action="registrar.php" method="post" name="registrar_paciente">
+        <form action="registrar.php" method="post" enctype="multipart/form-data" name="registrar_paciente">
 
 
 
@@ -284,6 +284,12 @@
             </div>
 
             <div>
+              <label for="exampleInputPassword1" class="form-label">Foto de Perfil</label>
+              <input type="file" class="form-control" name="foto" class = "contraseña">
+            </div>
+
+
+            <div>
 
               <label for="exampleInputPassword1" class="form-label">¿Eres médico?</label>
 
@@ -298,7 +304,7 @@
                 <label class="form-check-label" for="inlineRadio2">No</label>
               </div>
             </div>
-
+            
 
 
             <div class="row">

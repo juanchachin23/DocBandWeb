@@ -39,6 +39,7 @@ if ($user && $clave === $user['contraseña']) {
     $_SESSION['alcohol'] = $user['alcohol'];
     $_SESSION['fumar'] = $user['fumar'];
     $_SESSION['cafe'] = $user['cafe'];
+    $_SESSION['foto'] = $user['foto'];
 
     
 

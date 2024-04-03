@@ -29,6 +29,34 @@
     $palabra_s = $_POST['palabraSecreta'];
     $medico = $_POST['medico'];
 
+    $foto= $_FILES['foto'];
+    $tmp_name =$foto['tmp_name'];
+
+    $img_file=$foto['name'];
+    $img_type=$foto['type'];
+
+    $directorio_destino = "assets/pic/";
+
+
+    //Foto 
+    if (((strpos($img_type, "gif") || strpos($img_type, "jpeg") || strpos($img_type, "jpg")) || strpos($img_type, "png"))){
+
+
+        $destino = $directorio_destino . $img_file;
+
+    }
+
+    else{
+
+        $flag = False;
+        header("Location: Registrarse.php?mensaje=Foto:+Formato+No+Permitido");
+    
+        exit();
+
+
+    }
+
+
     // Validacion Nombre
     if ($flag) {
 
@@ -182,12 +210,12 @@
     if ($flag){
 
         
-        $db_insert = "insert into docband_user (nombre, apellido, cedula, genero, religion, f_nacimiento, l_nacimiento, telefono_p, telefono_f, ocupacion, etnia, t_sangre, direccion, direccion_h, alimentacion, alcohol, fumar, cafe, correo, contraseña, contraseña_f, medico) VALUES ('$nombre', '$apellido', '$cedula', '$genero', '$religion', '$nacimiento', '$lugar_nacimiento', '$num_p', '$num_f', '$ocupacion', '$etnia', '$tipo_s', '$direccion', '$direccion_h', '$alimentacion', '$alcohol', '$fumar', '$cafe', '$correo', '$contraseña', '$palabra_s', '$medico')";
+        $db_insert = "insert into docband_user (nombre, apellido, cedula, genero, religion, f_nacimiento, l_nacimiento, telefono_p, telefono_f, ocupacion, etnia, t_sangre, direccion, direccion_h, alimentacion, alcohol, fumar, cafe, correo, contraseña, contraseña_f, medico, foto) VALUES ('$nombre', '$apellido', '$cedula', '$genero', '$religion', '$nacimiento', '$lugar_nacimiento', '$num_p', '$num_f', '$ocupacion', '$etnia', '$tipo_s', '$direccion', '$direccion_h', '$alimentacion', '$alcohol', '$fumar', '$cafe', '$correo', '$contraseña', '$palabra_s', '$medico', '$destino')";
         
         $sql_rest = mysqli_query($db, $db_insert);
 
         if($sql_rest){
-
+            move_uploaded_file($tmp_name,$destino);
             header("Location: inicio-de-sesion.php?mensaje=Usuario+Registrado+Satisfactoriamente");
     
             exit();
