@@ -46,7 +46,7 @@ if (!isset ($nombre_usuario)) {
 
                                 <?php if ($foto != ""){?>
 
-                                <img class = "foto_perfil" src="<?php echo $foto?>" alt="foto de perfil">
+                                <img class = "foto_perfil img-fluid" src="<?php echo $foto?>" alt="foto de perfil">
 
                                 <?php }
 
