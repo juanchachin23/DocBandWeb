@@ -42,14 +42,26 @@ if (!isset ($nombre_usuario)) {
                     <div class="formulario">
                         <div class="row">
 
-                            <div class="Contedor-descripcion-pagina" style = "padding:15px  ;">
+                            <div class="Contedor-descripcion-pagina" style = "padding:15px;">
+
+                                <?php if ($foto != ""){?>
+
                                 <img class = "foto_perfil" src="<?php echo $foto?>" alt="foto de perfil">
+
+                                <?php }
+
+                                 else {?>
+
+                                            <i class="bi bi-person"></i>
+
+                                <?php }?>
+
                                 <h4 class="text-center">Bienvenido
                                     <?php echo $nombre_usuario ?>
                                 </h4>
                             </div>
                         </div>
-
+                            
                         <div class="row">
                             <div class="col" id="espacio-icono">
                                 <a href="informacion-personal.php" style="color: white; display: block;">
