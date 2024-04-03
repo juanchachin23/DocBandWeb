@@ -1,9 +1,8 @@
 <?php
-
+        require ('../conexion.php');
         require ('../funciones.php');
         $flag = True;
-        $db = new mysqli("localhost", "root", "", "docbanddb");
-
+        
         $cedula_historia = $_POST['cedula_historia'];
 
         $fecha_historia = $_POST['fecha_historia'];

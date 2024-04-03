@@ -120,7 +120,7 @@ a {
 
 #espacio-icono{
     
-    
+    width: 30px;
     
     
     
@@ -165,3 +165,15 @@ textarea {
 
 
 /*Fin de clases creadas  para pagina principal (index)*/
+
+.espacio{
+    font-weight:bolder;
+    margin-bottom: 10px;
+
+}
+
+.margen{
+
+    margin-left:5px;;
+
+}

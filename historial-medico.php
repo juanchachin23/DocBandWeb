@@ -162,11 +162,6 @@ $result = mysqli_query($db, $sql);
 
                                 ?>
 
-
-
-
-
-
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -180,7 +175,7 @@ $result = mysqli_query($db, $sql);
                                     <div id="flush-collapse<?php echo $contador; ?>" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body">
-                                            <div class="row">
+                                            <div class="row" >
 
 
                                                 <h5>Historial médico</h5>
@@ -198,13 +193,14 @@ $result = mysqli_query($db, $sql);
                                                     <?php echo $datos['cama']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Motivo de la consulta:</label></div>
-                                            <div class="row"><label>
+                                            <div class="row espacio"><label>Motivo de la consulta:</label></div>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['motivo_consulta']; ?>
-                                                </label></div> <br>
+                                                </label>
+                                            </div> <br>
 
-                                            <div class="row"><label>Enfermedad actual:</label></div>
-                                            <div class="row"><label>
+                                            <div class="row espacio"><label>Enfermedad actual:</label></div>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['enfermedad_actual']; ?>
                                                 </label></div><br>
 
@@ -215,90 +211,89 @@ $result = mysqli_query($db, $sql);
                                                 <hr>
                                             </div>
 
-                                            <div class="row"><label>Antecedentes patológicos:</label></div>
-                                            <div class="row"><label>
+                                            <div class="row espacio"><label>Antecedentes patológicos:</label></div>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['antecedentes_patologicos']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Antecedentes quirúrgicos:</label></div>
-                                            <div class="row"><label>
+                                            <div class="row espacio"><label>Antecedentes quirúrgicos:</label></div>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['antecedentes_quirurgicos']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Antecedentes por hábitos:
+                                            <div class="row espacio"><label>Antecedentes por hábitos:
 
                                                 </label></div>
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['antecedentes_habitos']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Antecedentes epidemiológicos:
+                                            <div class="row espacio"><label>Antecedentes epidemiológicos: 
 
                                                 </label></div>
-
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['antecedentes_epidemiologico']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Antecedentes familiares:
+                                            <div class="row espacio"><label>Antecedentes familiares:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['antecedentes_familiares']; ?>
                                                 </label></div> <br>
 
 
-                                            <div class="row">
+                                            <div class="">
                                                 <h5>Revisión por sistemas</h5>
                                                 <hr>
                                             </div>
-                                            <div class="row"><label>Diurésis:
+                                            <div class="row espacio"><label>Diurésis:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['diuresis']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Catársis:
+                                            <div class="row espacio"><label>Catársis:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['catarsis']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Sueño:
+                                            <div class="row espacio"><label>Sueño:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen" ><label >
                                                     <?php echo $datos['sueño']; ?>
                                                 </label></div><br>
 
 
-                                            <div class="row"><label>Relaciones Sexuales:
+                                            <div class="row espacio"><label>Relaciones Sexuales:
 
                                                 </label></div>
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['relaciones_sexuales']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Alergias:
+                                            <div class="row espacio"><label>Alergias:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['alergias']; ?>
                                                 </label></div><br>
 
 
-                                            <div class="row"><label>Examen Físico:
+                                            <div class="row espacio"><label>Examen Físico:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['examen_fisico']; ?>
                                                 </label></div><br>
 
@@ -307,51 +302,51 @@ $result = mysqli_query($db, $sql);
                                                 <hr>
                                             </div>
 
-                                            <div class="row"><label>Diagnóstico presuntivo:
+                                            <div class="row espacio"><label>Diagnóstico presuntivo:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['diagnostico_presuntivo']; ?>
                                                 </label></div><br>
 
 
-                                            <div class="row"><label>Diagnóstico etiológico:
+                                            <div class="row espacio"><label>Diagnóstico etiológico:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['diagnostico_etiologico']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Diagnóstico funcional:
+                                            <div class="row espacio"><label>Diagnóstico funcional:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['diagnostico_funcional']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Diagnóstico sindormático:
+                                            <div class="row espacio"><label>Diagnóstico sindormático:
 
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['diagnostico_sindormatico']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Diagnóstico anatómico:
+                                            <div class="row espacio"><label>Diagnóstico anatómico:
 
                                                 </label></div>
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['diagnostico_anatomico']; ?>
                                                 </label></div><br>
 
-                                            <div class="row"><label>Plan terapéutico:
+                                            <div class="row espacio"><label>Plan terapéutico:
                                                     
                                                 </label></div>
 
-                                            <div class="row"><label>
+                                            <div class="row margen"><label>
                                                     <?php echo $datos['plan_terapeutico']; ?>
                                                 </label></div><br>
 
@@ -364,7 +359,6 @@ $result = mysqli_query($db, $sql);
 
 
                         </div>
-
 
 
 
@@ -404,3 +398,4 @@ $result = mysqli_query($db, $sql);
 
 
 </html>
+
