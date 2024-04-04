@@ -59,7 +59,7 @@ if (!isset($nombre_usuario)){
 
  else {?>
 
-            <i class="bi bi-person"></i>
+            <i class="bi bi-hospital"></i>
 
 <?php }?>
                                 <h4 class="text-center">Bienvenido Med. <?php echo $nombre_usuario ?></h4>

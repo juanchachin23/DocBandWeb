@@ -19,8 +19,8 @@ if (mysqli_num_rows($consulta) > 0) {
     while ($user = mysqli_fetch_assoc($consulta)) {
         // Aquí puedes mostrar los datos del usuario
         
-        $resultadoHTML.= '<h1>Nombre: ' . $user['nombre'] . '</h1><br>';
-        $resultadoHTML.= '<h2>Apellido: ' . $user['apellido'] . '</h2><br>';
+        $resultadoHTML.= 'Nombre: ' . $user['nombre'] . '<br>';
+        $resultadoHTML.= 'Apellido: ' . $user['apellido'] . '<br>';
         $resultadoHTML.= 'Cedula: ' . $user['cedula'] . '<br>';
         $resultadoHTML.= 'Genero: ' . $user['genero'] . '<br>';
         $resultadoHTML.= 'Religion: ' . $user['religion'] . '<br>';

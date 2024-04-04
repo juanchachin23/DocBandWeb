@@ -1,14 +1,21 @@
 <?php
 
 session_start();
+
 require 'conexion.php';
 
+$id = $_SESSION['identificador'];
 
-$nombre_usuario = $_SESSION['nombre_usuario'];
-$foto = $_SESSION['foto'];
+$select_information = "SELECT * FROM docband_user WHERE id ='$id'";
+$select_query = mysqli_query($db,$select_information);
+$dato = mysqli_fetch_array($select_query);
+
+$nombre_usuario =  $dato['nombre'];
+$usuario =  $dato['correo'];
+$foto = $dato['foto'];
 
 
-if (!isset($nombre_usuario)) {
+if (!isset ($nombre_usuario)) {
     header("location: inicio-de-sesion.php");
 }
 
@@ -30,22 +37,8 @@ if (!isset($nombre_usuario)) {
     <!-- Conexion con archivo css -->
     <link href="assets/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <!-- Conexion con libreria de Escaner-qr -->
-    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"> </script>
-
-    <!--j query -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <title>DocBand-qr-paciente</title>
+    <title>DocBand-cuenta-paciente</title>
     <link rel="shortcut icon" href="assets/img/logo.png">
-
-
-    <style>
-        #result {
-            text-align: center;
-            font-size: 1.5rem;
-        }
-    </style>
 
 </head>
 
@@ -53,11 +46,10 @@ if (!isset($nombre_usuario)) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12 col-sm-12 col-xs-12">
-                <form action="registrar.php" method="post" name="registrar_paciente">
+                <form action="logica/cuentas.php" method="post" enctype="multipart/form-data" name="registrar_paciente">
 
                     <div class="formulario">
-
-                        <br>
+                    <br>
                         <div class="row">
 
 
@@ -84,16 +76,17 @@ if (!isset($nombre_usuario)) {
                                     <div class="row">
 
                                         <div class="Contedor-descripcion-pagina">
-                                            <?php if ($foto != "") { ?>
+                                        <?php if ($foto != ""){?>
 
-                                                <img class="foto_perfil img-fluid" src="<?php echo $foto ?>"
-                                                    alt="foto de perfil">
+                                            <img class = "foto_perfil img-fluid" src="<?php echo $foto?>" alt="foto de perfil">
 
-                                            <?php } else { ?>
+                                            <?php }
 
-                                                <i class="bi bi-person"></i>
+                                            else {?>
 
-                                            <?php } ?>
+                                                        <i class="bi bi-person"></i>
+
+                                        <?php }?>
                                             <h4 class="text-center">
                                                 <?php echo $nombre_usuario ?>
                                             </h4>
@@ -102,7 +95,7 @@ if (!isset($nombre_usuario)) {
 
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="informacion-personal.php" style="color: white; display: block;">
+                                            <a href="informacion-personal-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-info-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Informacion personal</h4>
                                             </a>
@@ -111,7 +104,7 @@ if (!isset($nombre_usuario)) {
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="qr.php" style="color: white; display: block;">
+                                            <a href="qr-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-qr-code" id="icono-salir-pagina-principal"></i>
                                                 <h4>QR</h4>
                                             </a>
@@ -121,7 +114,7 @@ if (!isset($nombre_usuario)) {
                                     </div>
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="historial-medico.php" style="color: white; display: block;">
+                                            <a href="historial-medico-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-clipboard2-pulse" id="icono-salir-pagina-principal"></i>
                                                 <h4>Historial medico</h4>
                                             </a>
@@ -129,7 +122,7 @@ if (!isset($nombre_usuario)) {
 
                                         <div class="col" id="espacio-icono">
 
-                                            <a href="cuenta.php" style="color: white; display: block;">
+                                            <a href="cuenta-medico.php" style="color: white; display: block;">
                                                 <i class="bi bi-person-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Cuenta</h4>
                                             </a>
@@ -140,14 +133,14 @@ if (!isset($nombre_usuario)) {
                                     <div class="row">
 
                                         <div class="col-lg-4 col-md-3 col-sm-3 col-4" id="espacio-icono">
-                                            <a href="index.php" style="color: white; display: block;"
+                                            <a href="paginaPrincipal-medico.php" style="color: white; display: block;"
                                                 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
                                                 <i class="bi bi-house" id="icono-salir-pagina-principal"></i>
                                                 <h4>Home</h4>
                                             </a>
                                         </div>
                                         <div class="col">
-
+                                            
                                         </div>
 
 
@@ -170,80 +163,37 @@ if (!isset($nombre_usuario)) {
                         </div>
 
                         <div class="row">
-                            <h5 class="secciones-formulario">Qr Escaner</h5>
+                            <h5 class="secciones-formulario">Mi cuenta</h5>
                             <hr>
-                            <br>
-
                         </div>
 
+                        
                         <div class="row">
-                            <div class="col col-lg-6 col-md-8" id="reader">
 
+                        <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
 
-
-
-
-
-                                <script>
-                                    const scanner = new Html5QrcodeScanner('reader', {
-                                        qrbox: {
-                                            width: 180,
-                                            height: 180,
-                                        },
-                                        fps: 20,
-
-
-                                    });
-
-                                    scanner.render(success, error);
-
-                                    function success(result) {
-
-                                        scanner.clear();
-                                        document.getElementById('reader').remove();
-                                        // Enviar el resultado a PHP mediante AJAX
-                                        enviarResultadoPHP(result);
-
-
-                                    }
-
-                                    function enviarResultadoPHP(result) {
-                                        // Realizar una solicitud AJAX utilizando jQuery
-                                        $.ajax({
-                                            url: 'consulta-escaner-qr.php', // Ruta al archivo PHP
-                                            type: 'POST', // Método de solicitud
-                                            data: { resultadoQR: result }, // Datos a enviar
-                                            success: function (response) {
-                                                // Manejar la respuesta del servidor si es necesario
-                                                document.getElementById('resultadoConsulta').innerHTML = response;
-                                            },
-                                            error: function (xhr, status, error) {
-                                                console.error('Error en la solicitud:', error);
-                                            }
-                                        });
-                                    }
-
-                                    function error(err) {
-                                        console.error(err);
-                                    } 
-                                </script>
-                            </div>
+                        <input type="email" class="form-control" value="<?php echo htmlspecialchars($usuario); ?>" name="correo" aria-describedby="emailHelp"
+                        placeholder="Coloque su dirección de correo electrónico" required>
 
                         </div>
-                        <div id="resultadoConsulta"></div>
+                        
+                        <div class="row">
+                            
+                        <label for="exampleInputPassword1" class="form-label">Foto de Perfil</label>
+                            <input type="file" name = "foto" value="<?php echo htmlspecialchars($foto); ?>" class="form-control" name="foto" class = "contraseña">
 
+                        </div>
 
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-4 ">
 
-
-
-
-
-
-
-
-
-
+                        <button type="submit" class="btn btn-primary mt-5">Registrarse</button>
+                        
+                        </div>
                     </div>
+
+
+                    
+
                 </form>
             </div>
         </div>
