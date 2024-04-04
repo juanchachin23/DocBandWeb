@@ -5,6 +5,7 @@ require 'conexion.php';
 
 
 $nombre_usuario = $_SESSION['nombre_usuario'];
+$foto = $_SESSION['foto'];
 
 
 if (!isset($nombre_usuario)) {
@@ -37,7 +38,7 @@ if (!isset($nombre_usuario)) {
 
     <title>DocBand-qr-paciente</title>
     <link rel="shortcut icon" href="assets/img/logo.png">
-    
+
 
     <style>
         #result {
@@ -83,7 +84,16 @@ if (!isset($nombre_usuario)) {
                                     <div class="row">
 
                                         <div class="Contedor-descripcion-pagina">
-                                            <i class="bi bi-person"></i>
+                                            <?php if ($foto != "") { ?>
+
+                                                <img class="foto_perfil img-fluid" src="<?php echo $foto ?>"
+                                                    alt="foto de perfil">
+
+                                            <?php } else { ?>
+
+                                                <i class="bi bi-hospital"></i>
+
+                                            <?php } ?>
                                             <h4 class="text-center">
                                                 <?php echo $nombre_usuario ?>
                                             </h4>
@@ -92,7 +102,8 @@ if (!isset($nombre_usuario)) {
 
                                     <div class="row">
                                         <div class="col" id="espacio-icono">
-                                            <a href="informacion-personal-medico.php" style="color: white; display: block;">
+                                            <a href="informacion-personal-medico.php"
+                                                style="color: white; display: block;">
                                                 <i class="bi bi-info-circle" id="icono-salir-pagina-principal"></i>
                                                 <h4>Informacion personal</h4>
                                             </a>

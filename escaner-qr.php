@@ -91,7 +91,7 @@ if (!isset($nombre_usuario)) {
 
                                             <?php } else { ?>
 
-                                                <i class="bi bi-person"></i>
+                                                <i class="bi bi-hospital"></i>
 
                                             <?php } ?>
                                             <h4 class="text-center">
