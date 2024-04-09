@@ -66,7 +66,7 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary mt-5">Iniciar sesion</button>
+            <button type="submit" class="btn btn-primary mt-5">Iniciar sesión</button>
           </div>
         </form>
       </div>
