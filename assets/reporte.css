@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body{
+    margin: 0px;
+    font-family: Rubik, 'Courier New', Courier, monospace;
+
+}
+
+.header{
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header div label{
+
+    font-weight: 600;
+    font-size: 35px;
+    color: #1a93be;
+
+}
+
+img{
+    text-align: center;
+    width: 60px;
+    border-radius: 100px;
+    margin-left: 43px;
+    margin-bottom: 5px;
+
+}
+
+hr{
+
+    border: #34b4e4 solid 1px;
+
+}
+
+h2{
+
+    color: #34b4e4;
+
+}
+
+.titulos{
+    font-weight: 500;
+    color: #34b4e4;
+
+
+}
+.contenedor_p{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+
+
+}
+
+.contenedor1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.contenedorDatos{
+    float: left;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.contenedorDatosDireccion{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    padding-right: 10px;
+}
+
+.contenedorHabitos{
+    display: flex;
+    justify-content:center;
+    margin-top: 30px;
+}
+
+.tet{
+    margin-top: 5px;
+    display: flex;
+    justify-content:right;
+
+
+}
+
+.contenedorHabitos .contenedorDatosDireccion{
+
+    margin-right: 80px;
+    
+}
